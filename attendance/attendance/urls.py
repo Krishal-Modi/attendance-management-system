@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student.views import *
-from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,4 +38,7 @@ urlpatterns = [
     # Departmenr URLS
 
     path('ceone/', ceone, name='ceone'),
+
+    path('student-list/', student_list, name='student_list'),
+
 ]
