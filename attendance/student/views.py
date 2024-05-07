@@ -65,7 +65,7 @@ def logout_page(request):
 # Department views
 
 
-# views.py
+# Computer Engineering Department
 
 def ceone(request):
     students = Student.objects.all()
@@ -83,24 +83,10 @@ def ceone(request):
                 if status in ['absent', 'present']:
                     StudentAttendance.objects.create(student=student, date=date, status=status)
                 
-            return redirect("/index/")  # Redirect to the appropriate page
+            return redirect("cereport")  # Redirect to the cereport page
     else:
         form = ContactForm()
     return render(request, "ceone.html", {'form': form, 'students': students})
-
-
-
-"""
-def mark_attendance(request):
-    if request.method == 'POST':
-        form = AttendanceForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('attendance_success')  # Redirect to a success page
-    else:
-        form = AttendanceForm()
-    return render(request, 'attendance_form.html', {'form': form})
-"""
 
 
 def student_list(request):
@@ -109,3 +95,28 @@ def student_list(request):
     
     # Pass the list of students to the template for rendering
     return render(request, 'ceone.html', {'students': students})
+
+
+# Appearing the Result of the student
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def cereport(request):
+    students = Student.objects.all()
+    distinct_dates = StudentAttendance.objects.values_list('date', flat=True).distinct()
+    
+    # Create a dictionary to store attendance data for each student
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendance.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = record.status  # Update attribute name here
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'cereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})

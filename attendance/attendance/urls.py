@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student.views import *
+from student import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,10 +36,13 @@ urlpatterns = [
 
     path('logout/', logout_page, name='logout_page'),
 
+
     # Departmenr URLS
 
     path('ceone/', ceone, name='ceone'),
 
     path('student-list/', student_list, name='student_list'),
+
+    path('cereport/', cereport, name='cereport'),
 
 ]
