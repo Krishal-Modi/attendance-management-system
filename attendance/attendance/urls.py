@@ -37,7 +37,9 @@ urlpatterns = [
     path('logout/', logout_page, name='logout_page'),
 
 
-    # Departmenr URLS
+# Departmenr URLS
+
+    # Computer Engineering 
 
     path('ceone/', ceone, name='ceone'),
 
@@ -45,4 +47,7 @@ urlpatterns = [
 
     path('cereport/', cereport, name='cereport'),
 
+    # Information Technology
+
+    
 ]
