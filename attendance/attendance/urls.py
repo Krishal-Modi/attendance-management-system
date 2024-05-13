@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student.views import *
-from student import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,7 +34,7 @@ urlpatterns = [
 #    path('delete-user/<int:user_id>/', delete_user, name='delete_user'),
 
     path('logout/', logout_page, name='logout_page'),
-
+    
 
 # Departmenr URLS
 

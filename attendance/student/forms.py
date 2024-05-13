@@ -1,5 +1,5 @@
 from django import forms
-from .models import StudentAttendance
+from .models import *
 
 class ContactForm(forms.Form):
     username = forms.CharField(max_length=20)
@@ -14,3 +14,4 @@ class AttendanceForm(forms.ModelForm):
     class Meta:
         model = StudentAttendance
         fields = ['student', 'date', 'status']
+

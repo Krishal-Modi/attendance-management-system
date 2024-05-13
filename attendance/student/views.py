@@ -12,6 +12,8 @@ from .forms import *
 def home(request):
     return render(request, 'index.html')
 
+def index(request):
+    return render(request, 'index.html')
 
 def register(request):
     if request.method == "POST":
@@ -61,7 +63,6 @@ def logout_page(request):
     return redirect('/login/')
 
 
-
 # Department views
 
 
@@ -87,6 +88,7 @@ def ceone(request):
     else:
         form = ContactForm()
     return render(request, "ceone.html", {'form': form, 'students': students})
+
 
 
 def student_list(request):

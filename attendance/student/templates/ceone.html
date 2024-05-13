@@ -344,7 +344,7 @@ footer {
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
     <div class="container-fluid">
-      <a class="navbar-brand" id="nav-title" href="">Horizon Crest University</a>
+      <a class="navbar-brand" id="nav-title" href="/index/">Horizon Crest University</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -477,6 +477,7 @@ footer {
         <div class="buttonl">
           <button class="home" type="Home"><a href="/index/">Home</a></button>
           <button class="submit" type="submit">Submit</button>
+          <div>Presents : <input type="text" id="presentNumber" readonly></div>
         </div>
         
 
@@ -508,6 +509,60 @@ footer {
   </div>
 </footer>
 
+
+
+<script href="/static/js/mark.js">
+
+
+window.onload = function() {
+      var presentRadios = document.querySelectorAll('input[type="radio"][value="present"]');
+      var absentRadios = document.querySelectorAll('input[type="radio"][value="absent"]');
+      var presentCountDisplay = document.getElementById('presentNumber');
+      var attendance = {}; // To keep track of the attendance status of each student
+
+      var presentCount = 0;
+
+      // Initialize attendance object
+      presentRadios.forEach(function(radio) {
+          var studentId = radio.name.split('_')[1];
+          attendance[studentId] = "absent";
+      });
+
+      // Event listeners for "Present" radio buttons
+      presentRadios.forEach(function(radio) {
+          var studentId = radio.name.split('_')[1];
+
+          radio.addEventListener('change', function() {
+              if (this.checked && attendance[studentId] === "absent") {
+                  presentCount++;
+                  attendance[studentId] = "present";
+              } else if (!this.checked && attendance[studentId] === "present") {
+                  presentCount--;
+                  attendance[studentId] = "absent";
+              }
+              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
+          });
+      });
+
+      // Event listeners for "Absent" radio buttons
+      absentRadios.forEach(function(radio) {
+          var studentId = radio.name.split('_')[1];
+
+          radio.addEventListener('change', function() {
+              if (this.checked && attendance[studentId] === "present") {
+                  presentCount--;
+                  attendance[studentId] = "absent";
+              } else if (!this.checked && attendance[studentId] === "absent") {
+                  presentCount++;
+                  attendance[studentId] = "present";
+              }
+              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
+          });
+      });
+  };
+
+
+</script>
 
 </body>
 

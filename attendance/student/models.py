@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import *
 from .models import *
-from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 
@@ -19,7 +18,8 @@ class CustomUser(AbstractUser):
     username = models.CharField(max_length=20, null=True, unique=True)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
-
+    
+# Computer Engineering 
 
 class Student(models.Model):
     name = models.CharField(max_length=100)
@@ -37,3 +37,7 @@ class StudentAttendance(models.Model):
 
     def __str__(self):
         return f"{self.student.name} - {self.date} - {self.status}"
+
+
+# Information Technology
+
