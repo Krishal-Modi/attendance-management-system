@@ -19,7 +19,7 @@
     background-image: url('/static/images/bg.jfif');
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
     margin: 0;
     padding: 0;
 }
@@ -27,7 +27,8 @@
 /*          Navbar            */
 
 #nav{
-    padding: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+  padding: 15px;
     font-family: Georgia, serif;
 }
 
@@ -58,11 +59,19 @@
     
 }
 
+.navbar-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-transparent .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for dropdowns */
+}
+
 #nav-title{
     color: black;
     text-decoration: none;
-    font-size: 28px;
     font-weight: bold;
+    font-size: 25px;
     font-family: Georgia, serif;
     margin-left: 20px;
 
@@ -95,6 +104,8 @@
     position: relative;
     top: 20px;
     font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .image{
@@ -113,7 +124,9 @@
     position: relative;
     top: 20px;
     padding: 0 20px;
-}
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+
+  }
 
 /*                Departments               */
 
@@ -122,6 +135,7 @@
     padding: 2% 0% 2% 0%;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .dep-cont > h3{
@@ -202,11 +216,12 @@ h4{
 
 .container1 {
     margin: 0% 0% 0% 0%;
-    padding: 2% 0% 2% 0%;
+    padding: 0% 0% 2% 0%;
     text-align: center;
 }
 
 .query{
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
     font-size: 30px;
     color: white;
@@ -218,9 +233,10 @@ h4{
 }
 
 .ctype{
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     width: 40%;
-    padding: 12px 20px;
-    margin: 10px 0;
+    padding: 14px 20px;
+    margin: 14px 0;
     border-radius: 35px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -228,11 +244,13 @@ h4{
 }
 
 .csubmit{
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 30%;
     background-color:#fff;
     font-size: 25px;
-    padding: 8px 12px;
-    margin: 8px 0;
+    color: grey;
+    padding: 10px 12px;
+    margin: 10px 0;
     border: none;
     border-radius: 35px;
     cursor: pointer;
@@ -379,9 +397,9 @@ footer {
 <body>
  
   {% csrf_token %}
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
+  <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
     <div class="container-fluid">
-      <a class="navbar-brand" id="nav-title" href="">Horizon Crest University</a>
+      <a class="navbar-brand" id="nav-title" href="/index/">Horizon Crest University</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -393,17 +411,28 @@ footer {
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Record
+              Report
             </a>
+            {% if request.user.is_authenticated %}
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Computer Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Information Technology</a></li>
-              <li><a class="dropdown-item" href="#">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Aeronautical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+              <li><a class="dropdown-item" href="/cereport/">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="/itreport/">Information Technology</a></li>
+              <li><a class="dropdown-item" href="/mereport/">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ciereport/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/aereport/">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="/eereport/">Electrical Engineering</a></li>
+            </ul>
+            {% else %}
+            <ul class="dropdown-menu" onclick="loginFirst()">
+              <li><a class="dropdown-item" href="">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="">Information Technology</a></li>
+              <li><a class="dropdown-item" href="">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
 
             </ul>
+            {% endif %}
           </li>
 
 
@@ -411,14 +440,26 @@ footer {
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mark
             </a>
+            {% if request.user.is_authenticated %}
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Computer Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Information Technology</a></li>
-              <li><a class="dropdown-item" href="#">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Aeronautical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ceone/">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="/itmark/">Information Technology</a></li>
+              <li><a class="dropdown-item" href="/memark/">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ciemark/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/aemark/">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="/eemark/">Electrical Engineering</a></li>
             </ul>
+            {% else %}
+            <ul class="dropdown-menu" onclick="loginFirst()">
+              <li><a class="dropdown-item" href="">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="">Information Technology</a></li>
+              <li><a class="dropdown-item" href="">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
+
+            </ul>
+            {% endif %}
           </li>
 
           <li class ="nav-item">
@@ -444,7 +485,7 @@ footer {
 
           {% if request.user.is_authenticated %}
           <li id="nav-name">
-            <a class="user-info-text nav-elements text-dark"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
           </li>
             {% else %}
           <li >
@@ -643,7 +684,7 @@ footer {
             <ul class="foot-list"> 
                 <li><a href="/index/">Dashboard</a></li>
                 <li><a href="/service/">Raise a Query</a></li>
-                <li><a href="/about/">Logout</a></li>
+                <li><a href="/about/">Privacy Policy</a></li>
                 <li><a href="/contact/">Delete Account</a></li>
             </ul>
         </div>

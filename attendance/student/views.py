@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from .models import *
 from django.contrib.auth.models import *
 from .forms import *
-
+from django.urls import reverse
 # Create your views here.
 
 
@@ -70,24 +70,33 @@ def logout_page(request):
 
 def ceone(request):
     students = Student.objects.all()
+    distinct_dates = StudentAttendance.objects.order_by().values('date').distinct()
+
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            date = form.cleaned_data['date']
-            time = form.cleaned_data['time']
-            
-            # Save attendance for each student
-            for student in students:
-                status = request.POST.get(f"attendance_{student.id}")  # Get the attendance status
-                # Ensure that the status is either 'absent' or 'present'
-                if status in ['absent', 'present']:
-                    StudentAttendance.objects.create(student=student, date=date, status=status)
-                
-            return redirect("cereport")  # Redirect to the cereport page
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendance.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("cereport"))
     else:
-        form = ContactForm()
-    return render(request, "ceone.html", {'form': form, 'students': students})
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendance.objects.filter(student=student)} for student in students}
+    
+    return render(request, "ceone.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
 
 
 
@@ -112,13 +121,16 @@ def cereport(request):
     students = Student.objects.all()
     distinct_dates = StudentAttendance.objects.values_list('date', flat=True).distinct()
     
-    # Create a dictionary to store attendance data for each student
     student_attendance = {}
     for student in students:
         attendance_records = StudentAttendance.objects.filter(student=student)
         attendance_data = {}
         for record in attendance_records:
-            attendance_data[record.date] = record.status  # Update attribute name here
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
         student_attendance[student.id] = attendance_data
     
     return render(request, 'cereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})

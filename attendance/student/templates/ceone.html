@@ -26,7 +26,8 @@ body{
 /*          Navbar            */
 
 #nav{
-    padding: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+  padding: 15px;
     font-family: Georgia, serif;
 }
 
@@ -50,17 +51,26 @@ body{
         justify-content: space-between;
         margin-left: 0;
         padding: 0 10px;
-        font-size: 18px;
+        
+    font-size: 18px;
         color: white;
     }
     
 }
 
+.navbar-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-transparent .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for dropdowns */
+}
+
 #nav-title{
     color: black;
     text-decoration: none;
-    font-size: 28px;
     font-weight: bold;
+    font-size: 25px;
     font-family: Georgia, serif;
     margin-left: 20px;
 
@@ -101,6 +111,7 @@ body{
 
     .contentheading {
       text-align: center;
+      font-size: 40px;
       margin: 4% 0% 4% 0%;
     }
 
@@ -130,6 +141,10 @@ body{
       text-align: center;
     }
 
+    #student-list > h2{
+      font-size: 30px;
+      font-weight: bold;
+    }
 
     table {
       width: 80%;
@@ -149,8 +164,21 @@ body{
     td {
       border: 2px solid black;
       text-align: center;
-      font-size: 18px;
+      font-size: 20px;
       padding: 10px;
+      font-weight: bold;
+    }
+
+    input[type="radio"] {
+        transform: scale(1.7); /* Adjust the scale factor as needed */
+        margin-right: 10px; /* Remove rounded corners */
+        border: 1px solid #333;
+        background-color: #f0f0f0;
+    }
+
+    label {
+        font-size: 16px;
+        font-weight: bold;
     }
 
     input[type="radio"] {
@@ -202,6 +230,37 @@ body{
       color: white;
     }
 
+    .numbercount {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100px;
+      height: 40px;
+      border-radius: 5px;
+      border: 1px solid black;
+      padding: 5px;
+      font-size: 20px;
+      margin: 0% 93% 0% 0%;
+      background-color: transparent;
+      color: white;
+    }
+
+    @media (max-width: 900px){
+      .numbercount {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 5px;
+        font-size: 20px;
+        margin: 0% 70% 0% 15%;
+        color: black;
+      }
+    }
+
     .submit{
       background-color: #007bff;
       color: white;
@@ -214,7 +273,9 @@ body{
       margin: 0% 35% 0% 35%;
     }
 
+
 /*                Footer                */
+
 
 footer {
     background-color: #007bff;
@@ -226,7 +287,7 @@ footer {
     top: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin: 20% 0% 0% 0%;
+    margin: 5% 0% 0% 0%;
     padding: 0px 0px 0px 0px;
     text-align: center;
     position: relative;
@@ -339,10 +400,11 @@ footer {
 </head>
 
 <body>
-
+  {% load custom_filter %}
+  {% csrf_token %}
   <!--                    Navbar                  -->
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary" id="nav">
+  <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
     <div class="container-fluid">
       <a class="navbar-brand" id="nav-title" href="/index/">Horizon Crest University</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -356,17 +418,28 @@ footer {
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Record
+              Report
             </a>
+            {% if request.user.is_authenticated %}
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Computer Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Information Technology</a></li>
-              <li><a class="dropdown-item" href="#">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Aeronautical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+              <li><a class="dropdown-item" href="/cereport/">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="/itreport/">Information Technology</a></li>
+              <li><a class="dropdown-item" href="/mereport/">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ciereport/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/aereport/">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="/eereport/">Electrical Engineering</a></li>
+            </ul>
+            {% else %}
+            <ul class="dropdown-menu" onclick="loginFirst()">
+              <li><a class="dropdown-item" href="">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="">Information Technology</a></li>
+              <li><a class="dropdown-item" href="">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
 
             </ul>
+            {% endif %}
           </li>
 
 
@@ -374,18 +447,30 @@ footer {
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Mark
             </a>
+            {% if request.user.is_authenticated %}
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Computer Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Information Technology</a></li>
-              <li><a class="dropdown-item" href="#">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Civil Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Aeronautical Engineering</a></li>
-              <li><a class="dropdown-item" href="#">Electrical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ceone/">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="/itmark/">Information Technology</a></li>
+              <li><a class="dropdown-item" href="/memark/">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="/ciemark/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/aemark/">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="/eemark/">Electrical Engineering</a></li>
             </ul>
+            {% else %}
+            <ul class="dropdown-menu" onclick="loginFirst()">
+              <li><a class="dropdown-item" href="">Computer Engineering</a></li>
+              <li><a class="dropdown-item" href="">Information Technology</a></li>
+              <li><a class="dropdown-item" href="">Mechanical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
+              <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
+
+            </ul>
+            {% endif %}
           </li>
 
           <li class ="nav-item">
-            <a class="nav-link text-dark" href="#contactForm">Contact</a>
+            <a class="nav-link text-dark" href="/index/#contactForm">Contact</a>
 
           <li class="">
             <form class="" role="search">
@@ -407,7 +492,7 @@ footer {
 
           {% if request.user.is_authenticated %}
           <li id="nav-name">
-            <a class="user-info-text nav-elements text-dark"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
           </li>
             {% else %}
           <li >
@@ -423,67 +508,63 @@ footer {
 
 
 
+
   <!--          Body            -->
 
 
   <div id="content">
     <h1 class="contentheading">Computer Engineering</h1>
 
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="fields">
-            <input id="username" name="username" type="text" placeholder="User Name">
-            <input type="date" id="date" name="date" placeholder="Date">
-            <select id="time" name="time">
-                <option value="10:00">10:00am-11:00am</option>
-                <option value="11:00">11:00am-12:00am</option>
-                <option value="13:00">1:00pm-2:00pm</option>
-                <option value="14:00">2:00pm-3:00pm</option>
-            </select>
-        </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="fields">
+          <input id="username" name="username" type="text" placeholder="User Name" required>
+          <input type="date" id="date" name="date" placeholder="Date" required>
+          <select id="time" name="time" required>
+              <option value="10:00">10:00am-11:00am</option>
+              <option value="11:00">11:00am-12:00pm</option>
+              <option value="13:00">1:00pm-2:00pm</option>
+              <option value="14:00">2:00pm-3:00pm</option>
+          </select>
+      </div>
 
-        <!-- Student Attendance Table -->
-        <div id="student-list">
-            <h2>Student List</h2>
-            <table>
-              <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Roll Number</th>
-                      <th>Status</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {% for student in students %}
-                  <tr>
-                      <td>{{ student.name }}</td>
-                      <td>{{ student.roll_number }}</td>
-                      <td>
-                          <label>
-                              <input type="radio" name="attendance_{{ student.id }}" value="present">
-                              Present
-                          </label>
-                          <label>
-                              <input type="radio" name="attendance_{{ student.id }}" value="absent">
-                              Absent
-                          </label>
-                      </td>
-                  </tr>
-                  {% endfor %}
-              </tbody>
-          </table>
-        </div>
+      <div id="student-list">
+          <h2>Student List</h2>
+          <table class="main-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Roll Number</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.roll_number }}</td>
+                        <td>
+                          <input type="radio" name="attendance_{{ student.id }}" value="present" id="present">
+                          <label for="present">Present</label>
+                          
+                          <input type="radio" name="attendance_{{ student.id }}" value="absent" id="absent">
+                          <label for="absent">Absent</label>
+                          
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
 
-        <div class="buttonl">
-          <button class="home" type="Home"><a href="/index/">Home</a></button>
-          <button class="submit" type="submit">Submit</button>
-          <div>Presents : <input type="text" id="presentNumber" readonly></div>
-        </div>
-        
-
-      </form>
+      <div class="buttonl">
+        <button class="home" type="button"><a href="/index/">Home</a></button>
+        <button class="submit" type="submit">Submit</button>
+      </div>
+      
+      <div><input type="text" class="numbercount" id="presentNumber" readonly></div>
+    </form>
 </div>
-
 
 <!--              Footer                  -->
 

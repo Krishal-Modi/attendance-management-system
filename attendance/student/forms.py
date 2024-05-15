@@ -9,9 +9,7 @@ class ContactForm(forms.Form):
 
 # forms.py
 
-
 class AttendanceForm(forms.ModelForm):
     class Meta:
         model = StudentAttendance
-        fields = ['student', 'date', 'status']
-
+        fields = ['date', 'status', 'time', 'username']
