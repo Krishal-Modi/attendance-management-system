@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student.views import *
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,18 +45,27 @@ urlpatterns = [
 
     path('ceone/', ceone, name='ceone'),
     path('itmark/', itmark, name='itmark'),
-
+    path('memark/', memark, name='memark'),
+    path('cvmark/', cvmark, name='cvmark'),
+    path('aemark/', aemark, name='aemark'),
+    path('eemark/', eemark, name='eemark'),
     
     # Student List
 
     path('student-list/', student_list, name='student_list'),
     path('itstudent-list/', itstudent_list, name='itstudent_list'),
-    
+    path('mestudent-list/', mestudent_list, name='mestudent_list'),
+    path('cvstudent-list/', cvstudent_list, name='cvstudent_list'),
+    path('aestudent-list/', aestudent_list, name='aestudent_list'),
+    path('eestudent-list/', eestudent_list, name='eestudent_list'),
+
     # Record Attendance
 
     path('cereport/', cereport, name='cereport'),
     path('itreport/', itreport, name='itreport'),
-
-    
+    path('mereport/', mereport, name='mereport'),
+    path('cvreport/', cvreport, name='cvreport'),
+    path('aereport/', aereport, name='aereport'),
+    path('eereport/', eereport, name='eereport'),
     
 ]
