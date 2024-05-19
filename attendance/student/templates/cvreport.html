@@ -2,18 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <title>Document</title>
 
-  <style>
+    <title>Document</title>
 
-body{
+    <style>
+        
+        body{
     background-image: url('/static/images/bg.jfif');
     background-size: cover;
     background-attachment :fixed;
@@ -37,7 +38,7 @@ body{
     #nav-items{
         display: flex;
         justify-content: space-between;
-        margin-left: 380px;
+        margin-left: 400px;
         gap: 30px;
         padding: 0 10px;
         font-size: 20px;
@@ -106,191 +107,94 @@ body{
 }
 
 
-/*              Fields                */
 
-    .fields {
-      display: flex;
-      flex-direction: rows;
-      gap: 20%;
-      margin: 0% 15% 0% 15%;
+        /*                 Report                   */
+
+        .fields {
+            display: flex;
+            flex-direction: rows;
+            gap: 20%;
+            margin: 0% 15% 0% 15%;
+        }
+
+        .fields>input,
+        select {
+            width: 30%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 0% 0% 0% 0%;
+        }
+
+        button {
+            width: 30%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 20px;
+            margin: 0% 35% 0% 35%;
+        }
+
+        /* Table */
+        #student-list>h2 {
+            margin: 3% 10% 3% 10%;
+            text-align: center;
+        }
+
+        table {
+            width: auto;
+            margin: 0% 10% 0% 10%;
+            border-collapse: collapse;
+            color: black;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+            text-align: center;
+            font-size: 20px;
+            padding: 10px 25px 10px 25px;
+        }
+
+        input[type="radio"] {
+            margin: 0% 5% 0% 5%;
+        }
+
+        .submit {
+            width: 30%;
+            height: 40px;
+            border-radius: 5px;
+            border: 1px solid black;
+            padding: 5px;
+            background-color: #007bff;
+            color: white;
+            position: relative;
+            font-size: 20px;
+            margin: 0% 35% 0% 35%;
+        }
+
+        
+    .home{
+      margin: 3% 35% 3% 35%;
     }
 
-    .fields>input,
-    select {
-      width: 30%;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px;
-    }
-
-    .contentheading {
-      text-align: center;
-      font-size: 40px;
-      margin: 4% 0% 4% 0%;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      margin: 0% 0% 0% 0%;
-    }
-
-    button {
-      width: 30%;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px;
-      background-color: #007bff;
-      color: white;
-      font-size: 20px;
-      margin: 0% 35% 0% 35%;
-    }
-
-    /*          Table           */
-
-    #student-list>h2 {
-      margin: 0% 10% 3% 10%;
-      text-align: center;
-    }
-
-    #student-list > h2{
-      font-size: 30px;
-      font-weight: bold;
-    }
-
-    table {
-      width: 80%;
-      margin: 0% 10% 0% 10%;
-      border-collapse: collapse;
-      color: black;
-    }
-
-
-    th {
-      border: 2px solid black;
-      text-align: center;
-      font-size: 20px;
-      padding: 10px;
-    }
-
-    td {
-      border: 2px solid black;
-      text-align: center;
-      font-size: 20px;
-      padding: 10px;
-      font-weight: bold;
-    }
-
-    input[type="radio"] {
-        transform: scale(1.7); /* Adjust the scale factor as needed */
-        margin-right: 10px; /* Remove rounded corners */
-        border: 1px solid #333;
-        background-color: #f0f0f0;
-    }
-
-    label {
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    input[type="radio"] {
-      margin: 0% 5% 0% 5%;
-    }
-
-    /*                  Buttons                   */
-
-    .buttonl {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0%;
-      margin: 0% 15% 0% 15%;
-
-    } 
-
-    @media(max-width: 900px){
-      .buttonl {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0%;
-        margin: 0% 15% 0% 15%;
-  
-      }
-      
-      .home{
-        margin: 0% 35% 10% 35%;
-      }
-
-      .submit{
-        margin: 10% 35% 0% 35%;
-      }
-    }
-
-    .home {
-      background-color: #007bff;
-      color: white;
-      font-size: 20px;
-      width: 30%;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px;
-      margin: 0% 35% 0% 35%;
-    }
-
-    .home>a{
+    .home > button > a{
       text-decoration: none;
       color: white;
     }
 
-    .numbercount {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 100px;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px;
-      font-size: 20px;
-      margin: 0% 93% 0% 0%;
-      background-color: transparent;
-      color: white;
-    }
 
-    @media (max-width: 900px){
-      .numbercount {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        width: 100px;
-        height: 40px;
-        border-radius: 5px;
-        border: 1px solid black;
-        padding: 5px;
-        font-size: 20px;
-        margin: 0% 70% 0% 15%;
-        color: black;
-      }
-    }
-
-    .submit{
-      background-color: #007bff;
-      color: white;
-      font-size: 20px;
-      width: 30%;
-      height: 40px;
-      border-radius: 5px;
-      border: 1px solid black;
-      padding: 5px;
-      margin: 0% 35% 0% 35%;
-    }
-
-
-/*                Footer                */
-
+        /*                Footer                */
 
 footer {
     background-color: #007bff;
@@ -298,17 +202,23 @@ footer {
     padding: 20px 0;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    position: relative;
-    top: 20px;
+    position: fixed;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin: 5% 0% 0% 0%;
+    margin: 6% 0% 0% 0%;
     padding: 0px 0px 0px 0px;
     text-align: center;
     position: relative;
     top: 20px;
     font-weight: bold;
     font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    footer {
+        padding: 20px 0;
+        font-size: 15px;
+    }
 }
 
 .footer-columns {
@@ -411,12 +321,13 @@ footer {
 }
 
 
-  </style>
+
+    </style>
+    {% load custom_filter %}
 </head>
 
 <body>
-  {% load custom_filter %}
-  {% csrf_token %}
+
   <!--                    Navbar                  -->
 
   <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
@@ -440,7 +351,7 @@ footer {
               <li><a class="dropdown-item" href="/cereport/">Computer Engineering</a></li>
               <li><a class="dropdown-item" href="/itreport/">Information Technology</a></li>
               <li><a class="dropdown-item" href="/mereport/">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="/ciereport/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/cvreport/">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="/aereport/">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="/eereport/">Electrical Engineering</a></li>
             </ul>
@@ -467,7 +378,7 @@ footer {
               <li><a class="dropdown-item" href="/ceone/">Computer Engineering</a></li>
               <li><a class="dropdown-item" href="/itmark/">Information Technology</a></li>
               <li><a class="dropdown-item" href="/memark/">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="/ciemark/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/cvmark/">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="/aemark/">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="/eemark/">Electrical Engineering</a></li>
             </ul>
@@ -522,35 +433,27 @@ footer {
   </nav>
 
 
+    <!--                Body                  -->
 
 
-  <!--          Body            -->
-
-
-  <div id="content">
-    <h1 class="contentheading">Computer Engineering</h1>
-
-    <form method="post">
-      {% csrf_token %}
-      <div class="fields">
-          <input id="username" name="username" type="text" placeholder="User Name" required>
-          <input type="date" id="date" name="date" placeholder="Date" required>
-          <select id="time" name="time" required>
-              <option value="10:00">10:00am-11:00am</option>
-              <option value="11:00">11:00am-12:00pm</option>
-              <option value="13:00">1:00pm-2:00pm</option>
-              <option value="14:00">2:00pm-3:00pm</option>
-          </select>
-      </div>
-
-      <div id="student-list">
-          <h2>Student List</h2>
-          <table class="main-table">
+    {% load custom_filter %}
+    <div id="student-list">
+        <h2>Student List</h2>
+        <table>
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Roll Number</th>
-                    <th>Status</th>
+                    <th rowspan="2">Student Name</th>
+                    <th rowspan="2">Roll Number</th>
+                    {% for date in distinct_dates %}
+                        <th colspan="3">{{ date }}</th>
+                    {% endfor %}
+                </tr>
+                <tr>
+                    {% for date in distinct_dates %}
+                        <th>Username</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    {% endfor %}
                 </tr>
             </thead>
             <tbody>
@@ -558,108 +461,67 @@ footer {
                     <tr>
                         <td>{{ student.name }}</td>
                         <td>{{ student.roll_number }}</td>
-                        <td>
-                          <input type="radio" name="attendance_{{ student.id }}" value="present" id="present">
-                          <label for="present">Present</label>
-                          
-                          <input type="radio" name="attendance_{{ student.id }}" value="absent" id="absent">
-                          <label for="absent">Absent</label>
-                          
-                        </td>
+                        {% for date in distinct_dates %}
+                            <td>
+                                {% with attendance=student_attendance|get_item:student.id|get_item:date %}
+                                    {{ attendance.username|default:"N/A" }}
+                                {% endwith %}
+                            </td>
+                            <td>
+                                {% with attendance=student_attendance|get_item:student.id|get_item:date %}
+                                    {{ attendance.time|default:"N/A" }}
+                                {% endwith %}
+                            </td>
+                            <td>
+                                {% with attendance=student_attendance|get_item:student.id|get_item:date %}
+                                    {{ attendance.status|default:"Not Recorded" }}
+                                {% endwith %}
+                            </td>
+                        {% endfor %}
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-      </div>
+    </div>
+    
+    
+    
 
-      <div class="buttonl">
-        <button class="home" type="button"><a href="/index/">Home</a></button>
-        <button class="submit" type="submit">Submit</button>
-      </div>
-      
-      <div><input type="text" class="numbercount" id="presentNumber" readonly></div>
-    </form>
-</div>
+    
 
-<!--              Footer                  -->
+    
+    <div class="home">
+        <button><a href="/index/">Home</a></button>
+    </div>
+
+
+    <!--              Footer                  -->
 
 
 <footer>
-  <div class="footer-columns">
-      <div class="footer-column1">
-        <h3>Horizon Crest University</h3>  
-        <p>Attendance Management <br> System</p>
-      </div>
-      <div class="footer-column2">
-          <ul class="foot-list"> 
-              <li><a href="/index/">Dashboard</a></li>
-              <li><a href="/service/">Raise a Query</a></li>
-              <li><a href="/about/">Logout</a></li>
-              <li><a href="/contact/">Delete Account</a></li>
-          </ul>
-      </div>
-      <div class="footer-column3">
-          <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
-          <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
-      </div>
-  </div>
-</footer>
+    <div class="footer-columns">
+        <div class="footer-column1">
+          <h3>Horizon Crest University</h3>  
+          <p>Attendance Management <br> System</p>
+        </div>
+        <div class="footer-column2">
+            <ul class="foot-list"> 
+                <li><a href="/index/">Dashboard</a></li>
+                <li><a href="/service/">Raise a Query</a></li>
+                <li><a href="/about/">Logout</a></li>
+                <li><a href="/contact/">Delete Account</a></li>
+            </ul>
+        </div>
+        <div class="footer-column3">
+            <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
+            <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
+        </div>
+    </div>
+  </footer>
+  
 
-
-
-<script href="/static/js/mark.js">
-
-
-window.onload = function() {
-      var presentRadios = document.querySelectorAll('input[type="radio"][value="present"]');
-      var absentRadios = document.querySelectorAll('input[type="radio"][value="absent"]');
-      var presentCountDisplay = document.getElementById('presentNumber');
-      var attendance = {}; // To keep track of the attendance status of each student
-
-      var presentCount = 0;
-
-      // Initialize attendance object
-      presentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
-          attendance[studentId] = "absent";
-      });
-
-      // Event listeners for "Present" radio buttons
-      presentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
-
-          radio.addEventListener('change', function() {
-              if (this.checked && attendance[studentId] === "absent") {
-                  presentCount++;
-                  attendance[studentId] = "present";
-              } else if (!this.checked && attendance[studentId] === "present") {
-                  presentCount--;
-                  attendance[studentId] = "absent";
-              }
-              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
-          });
-      });
-
-      // Event listeners for "Absent" radio buttons
-      absentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
-
-          radio.addEventListener('change', function() {
-              if (this.checked && attendance[studentId] === "present") {
-                  presentCount--;
-                  attendance[studentId] = "absent";
-              } else if (!this.checked && attendance[studentId] === "absent") {
-                  presentCount++;
-                  attendance[studentId] = "present";
-              }
-              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
-          });
-      });
-  };
-
-
-</script>
 
 </body>
 
 </html>
+

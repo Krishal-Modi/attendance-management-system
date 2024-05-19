@@ -43,8 +43,6 @@
         padding: 0 10px;
         font-size: 20px;
         color: #f0f0f0;
-        animation: rightSideAni 1s ease forwards;
-    animation-delay: calc(.2s * var(--rightSideAni));
     }
     
 }
@@ -76,9 +74,6 @@
     font-weight: bold;
     font-size: 25px;
     font-family: Georgia, serif;
-    margin-left: 20px;
-    animation: leftani 1s ease forwards;
-    animation-delay: calc(.2s * var(--leftani));
 }
 
 @media(max-width: 950px){
@@ -199,8 +194,40 @@
     width: 90%;
     border-radius: 2%;
     margin-top: 20%;
-    animation: rightSideAni 1s ease forwards;
-    animation-delay: calc(.2s * var(--rightSideAni));
+}
+
+/*          Department selection             */
+
+.dep-sel-parent{
+    text-align: center;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    position: relative;
+    top: 40px;
+    font-weight: bold;
+}
+
+#department-select{
+    width: 350px;
+    padding: 12px 20px;
+    margin: 0px 0px 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-align: center;
+    text-align-last: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: Georgia, serif;
+    font-weight: bold;
+    background-color: #f9f9f9;
+
 }
 
 
@@ -211,12 +238,14 @@
     padding: 2% 0% 2% 0%;
     align-items: center;
     text-align: center;
+    display: none;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .dep-cont > h3{
     text-align: center;
     font-size: 30px;
+    display: none;
     margin: 5% 0% 12% 0%;
     position: relative;
     top: 40px;
@@ -226,7 +255,7 @@
 
 .cont{
     display: flex;
-    margin: 0% 0% 3% 0%;
+    margin: 5% 0% 3% 0%;
     padding: 0% 0% 0% 0%;
     justify-content: center; 
 }
@@ -310,7 +339,7 @@ h4{
     text-align: center;
     font-size: 30px;
     color: white;
-    margin: 0% 0% 5% 0%;
+    margin: 3% 0% 5% 0%;
     position: relative;
     top: 10px;
     font-weight: bold;
@@ -566,7 +595,7 @@ footer {
               <li><a class="dropdown-item" href="/cereport/">Computer Engineering</a></li>
               <li><a class="dropdown-item" href="/itreport/">Information Technology</a></li>
               <li><a class="dropdown-item" href="/mereport/">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="/ciereport/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/cvreport/">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="/aereport/">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="/eereport/">Electrical Engineering</a></li>
             </ul>
@@ -593,7 +622,7 @@ footer {
               <li><a class="dropdown-item" href="/ceone/">Computer Engineering</a></li>
               <li><a class="dropdown-item" href="/itmark/">Information Technology</a></li>
               <li><a class="dropdown-item" href="/memark/">Mechanical Engineering</a></li>
-              <li><a class="dropdown-item" href="/ciemark/">Civil Engineering</a></li>
+              <li><a class="dropdown-item" href="/cvmark/">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="/aemark/">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="/eemark/">Electrical Engineering</a></li>
             </ul>
@@ -666,7 +695,26 @@ footer {
   knowledge together, one class at a time, shaping your success through punctuality and dedication.</p>
 
 
+<!-- Department Selection -->
+<div class="dep-sel-parent">
+  <select id="department-select" onchange="showDepartments()">
+    <option value="all">Semester</option>
+    <option value="Semester1">Semester 1</option>
+    <option value="Semester2">Semester 2</option>
+    <option value="Semester3">Semester 3</option>
+    <option value="Semester4">Semester 4</option>
+    <option value="Semester5">Semester 5</option>
+    <option value="Semester6">Semester 6</option>
+    <option value="Semester7">Semester 7</option>
+    <option value="Semester8">Semester 8</option>
+  </select>
+</div>
+
+
+
 <!--          Departments          -->
+
+
 
 <div class="dep-cont">
   <h3>Departments</h3>
@@ -699,7 +747,7 @@ footer {
       <h4>Information Technology</h4>
       <button class="button2">
         {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
+        <a href="/itmark/">Mark</a>
         {% else %}
         <a onclick="loginFirst()" href="" >Mark</a>
         {% endif %}
@@ -707,7 +755,7 @@ footer {
     
       <button class="button1">
         {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
+        <a href="/itreport/">Report</a>
         {% else %}
         <a href="" onclick="loginFirst()">Report</a>
         {% endif %}
@@ -722,7 +770,7 @@ footer {
       <h4>Mechanical Engineering</h4>
       <button class="button2">
         {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
+        <a href="/memark/">Mark</a>
         {% else %}
         <a href="" onclick="loginFirst()">Mark</a>
         {% endif %}
@@ -730,7 +778,7 @@ footer {
       
       <button class="button1">
         {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
+        <a href="/mereport/">Report</a>
         {% else %}
         <a href="" onclick="loginFirst()">Report</a>
         {% endif %}
@@ -745,7 +793,7 @@ footer {
       <h4>Civil Engineering</h4>
       <button class="button2">
         {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
+        <a href="/cvmark/">Mark</a>
         {% else %}
         <a href="" onclick="loginFirst()">Mark</a>
         {% endif %}
@@ -753,7 +801,7 @@ footer {
       
       <button class="button1">
         {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
+        <a href="/cvreport/">Report</a>
         {% else %}
         <a href="" onclick="loginFirst()">Report</a>
         {% endif %}
@@ -855,7 +903,25 @@ footer {
 </footer>
 
 
-  <script src="/static/js/index.js"></script>
+<script>
+
+function loginFirst() {
+      alert("Please log in first to access this feature.");
+    }
+
+     function showDepartments() {
+      const semesterSelect = document.getElementById('department-select');
+      const selectedSemester = semesterSelect.value;
+      const departmentContainer = document.querySelector('.dep-cont');
+
+      if (selectedSemester !== 'all') {
+        departmentContainer.style.display = 'block';
+      } else {
+        departmentContainer.style.display = 'none';
+      }
+    }
+
+</script>
 </body>
 
 </html>
