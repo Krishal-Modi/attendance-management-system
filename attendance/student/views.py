@@ -6,6 +6,7 @@ from .models import *
 from django.contrib.auth.models import *
 from .forms import *
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -198,3 +199,269 @@ def itreport(request):
         student_attendance[student.id] = attendance_data
     
     return render(request, 'itreport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+
+
+
+
+# Mechanical Engineering
+
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def memark(request):
+    students = Studentme.objects.all()
+    distinct_dates = StudentAttendanceme.objects.order_by().values('date').distinct()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendanceme.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("mereport"))
+    else:
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendanceme.objects.filter(student=student)} for student in students}
+    
+    return render(request, "memark.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
+
+def mestudent_list(request):
+    students = Studentme.objects.all()
+    return render(request, 'memark.html', {'students': students})
+
+
+def mereport(request):
+    students = Studentme.objects.all()
+    distinct_dates = StudentAttendanceme.objects.values_list('date', flat=True).distinct()
+    
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendanceme.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'mereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+
+
+
+
+# Civil Engineering
+
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def cvmark(request):
+    students = Studentcv.objects.all()
+    distinct_dates = StudentAttendancecv.objects.order_by().values('date').distinct()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendancecv.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("cvreport"))
+    else:
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendancecv.objects.filter(student=student)} for student in students}
+    
+    return render(request, "cvmark.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
+
+def cvstudent_list(request):
+    students = Studentcv.objects.all()
+    return render(request, 'cvmark.html', {'students': students})
+
+
+def cvreport(request):
+    students = Studentcv.objects.all()
+    distinct_dates = StudentAttendancecv.objects.values_list('date', flat=True).distinct()
+    
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendancecv.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'cvreport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+
+
+
+
+
+# Aeronautical Engineering
+
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def aemark(request):
+    students = Studentae.objects.all()
+    distinct_dates = StudentAttendanceae.objects.order_by().values('date').distinct()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendanceae.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("aereport"))
+    else:
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendanceae.objects.filter(student=student)} for student in students}
+    
+    return render(request, "aemark.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
+
+def aestudent_list(request):
+    students = Studentae.objects.all()
+    return render(request, 'aemark.html', {'students': students})
+
+
+def aereport(request):
+    students = Studentae.objects.all()
+    distinct_dates = StudentAttendanceae.objects.values_list('date', flat=True).distinct()
+    
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendanceae.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'aereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+
+
+
+
+
+# Electrical Engineering
+
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def eemark(request):
+    students = Studentee.objects.all()
+    distinct_dates = StudentAttendanceee.objects.order_by().values('date').distinct()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendanceee.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("eereport"))
+    else:
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendanceee.objects.filter(student=student)} for student in students}
+    
+    return render(request, "eemark.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
+
+def eestudent_list(request):
+    students = Studentee.objects.all()
+    return render(request, 'eemark.html', {'students': students})
+
+
+def eereport(request):
+    students = Studentee.objects.all()
+    distinct_dates = StudentAttendanceee.objects.values_list('date', flat=True).distinct()
+    
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendanceee.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'eereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
