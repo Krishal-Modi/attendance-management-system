@@ -5,9 +5,9 @@ class Command(BaseCommand):
     help = 'Delete all students and their attendance records'
 
     def handle(self, *args, **kwargs):
-        StudentAttendanceit.objects.all().delete()
-        Studentit.objects.all().delete()
+        StudentAttendanceee.objects.all().delete()
+        Studentee.objects.all().delete()
         self.stdout.write(self.style.SUCCESS('Successfully deleted all students and their attendance records'))
 
 
-# python manage.py delete_studentsit
+# python manage.py delete_studentsee

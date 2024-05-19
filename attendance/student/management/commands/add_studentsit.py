@@ -50,3 +50,6 @@ class Command(BaseCommand):
             Studentit.objects.create(name=name, roll_number=roll_number)
 
         self.stdout.write(self.style.SUCCESS('Students added successfully'))
+
+
+# python manage.py add_studentsit
