@@ -27,6 +27,8 @@ urlpatterns = [
 
     path('index/' ,home ,name="home"),
 
+# User Authentication
+
     path('login/' ,login_page ,name="login_page"),
 
     path('register/' ,register ,name="register"),
@@ -36,17 +38,24 @@ urlpatterns = [
     path('logout/', logout_page, name='logout_page'),
     
 
-# Departmenr URLS
+# Attendance
 
-    # Computer Engineering 
+    # Mark Attendance
 
     path('ceone/', ceone, name='ceone'),
+    path('itmark/', itmark, name='itmark'),
+
+    
+    # Student List
 
     path('student-list/', student_list, name='student_list'),
+    path('itstudent-list/', itstudent_list, name='itstudent_list'),
+    
+    # Record Attendance
 
     path('cereport/', cereport, name='cereport'),
+    path('itreport/', itreport, name='itreport'),
 
-    # Information Technology
-
+    
     
 ]

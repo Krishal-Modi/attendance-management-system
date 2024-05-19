@@ -18,6 +18,7 @@ class CustomUser(AbstractUser):
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
 
+# Computer Engineering
 class Student(models.Model):
     name = models.CharField(max_length=100)
     roll_number = models.CharField(max_length=20)
@@ -38,4 +39,20 @@ class StudentAttendance(models.Model):
     
     
 # Information Technology
+class Studentit(models.Model):
+    name = models.CharField(max_length=100)
+    roll_number = models.CharField(max_length=20)
+    status = models.CharField(max_length=100, default='pending')
 
+    def __str__(self):
+        return self.name
+
+class StudentAttendanceit(models.Model):
+    student = models.ForeignKey(Studentit, on_delete=models.CASCADE)  # Ensure this references Studentit
+    date = models.DateField()
+    status = models.CharField(max_length=100, default='pending')
+    time = models.TimeField(null=True, blank=True)
+    username = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.student.name} - {self.date} - {self.status}"

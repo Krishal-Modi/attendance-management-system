@@ -134,3 +134,67 @@ def cereport(request):
         student_attendance[student.id] = attendance_data
     
     return render(request, 'cereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+
+
+# Information Technology Department
+
+def get_student_attendance(student, distinct_dates):
+    attendance_records = {}
+    for date in distinct_dates:
+        attendance = student.studentattendance_set.filter(date=date).first()
+        attendance_records[date] = attendance.status if attendance else ''
+    return attendance_records
+
+
+def itmark(request):
+    students = Studentit.objects.all()
+    distinct_dates = StudentAttendanceit.objects.order_by().values('date').distinct()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+
+        for student in students:
+            status = request.POST.get(f"attendance_{student.id}")
+            if status in ['absent', 'present']:
+                StudentAttendanceit.objects.update_or_create(
+                    student=student, date=date,
+                    defaults={'status': status, 'time': time, 'username': username}
+                )
+        return redirect(reverse("itreport"))
+    else:
+        form = AttendanceForm()
+    
+    student_attendance = {student.id: {att.date: att for att in StudentAttendanceit.objects.filter(student=student)} for student in students}
+    
+    return render(request, "itmark.html", {
+        'form': form,
+        'students': students,
+        'distinct_dates': [d['date'] for d in distinct_dates],
+        'student_attendance': student_attendance,
+    })
+
+
+def itstudent_list(request):
+    students = Studentit.objects.all()
+    return render(request, 'itmark.html', {'students': students})
+
+
+def itreport(request):
+    students = Studentit.objects.all()
+    distinct_dates = StudentAttendanceit.objects.values_list('date', flat=True).distinct()
+    
+    student_attendance = {}
+    for student in students:
+        attendance_records = StudentAttendanceit.objects.filter(student=student)
+        attendance_data = {}
+        for record in attendance_records:
+            attendance_data[record.date] = {
+                'status': record.status,
+                'time': record.time,
+                'username': record.username
+            }
+        student_attendance[student.id] = attendance_data
+    
+    return render(request, 'itreport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})

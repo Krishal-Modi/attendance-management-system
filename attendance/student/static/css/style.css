@@ -2,7 +2,7 @@ body{
     background-image: url('/static/images/bg.jfif');
     background-size: cover;
     background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
+    font-family: Georgia, serif;
     margin: 0;
     padding: 0;
 }
@@ -10,7 +10,8 @@ body{
 /*          Navbar            */
 
 #nav{
-    padding: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+  padding: 15px;
     font-family: Georgia, serif;
 }
 
@@ -41,11 +42,19 @@ body{
     
 }
 
+.navbar-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-transparent .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for dropdowns */
+}
+
 #nav-title{
     color: black;
     text-decoration: none;
-    font-size: 28px;
     font-weight: bold;
+    font-size: 25px;
     font-family: Georgia, serif;
     margin-left: 20px;
 
@@ -78,6 +87,8 @@ body{
     position: relative;
     top: 20px;
     font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .image{
@@ -96,7 +107,9 @@ body{
     position: relative;
     top: 20px;
     padding: 0 20px;
-}
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+
+  }
 
 /*                Departments               */
 
@@ -105,6 +118,7 @@ body{
     padding: 2% 0% 2% 0%;
     align-items: center;
     text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .dep-cont > h3{
@@ -138,10 +152,6 @@ h4{
         font-size: 20px;
         margin: 0% 0% 8% 0%;
     }
-}
-
-.last{
-    padding-bottom: 5%;
 }
 
 .acard {
@@ -188,12 +198,13 @@ h4{
 /*      Contact       */
 
 .container1 {
-    margin: 0% 0% 5% 0%;
-    padding: 2% 0% 2% 0%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 2% 0%;
     text-align: center;
 }
 
 .query{
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     text-align: center;
     font-size: 30px;
     color: white;
@@ -205,9 +216,10 @@ h4{
 }
 
 .ctype{
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 14px 20px;
+    margin: 14px 0;
     border-radius: 35px;
     display: inline-block;
     border: 1px solid #ccc;
@@ -215,12 +227,13 @@ h4{
 }
 
 .csubmit{
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 30%;
     background-color:#fff;
-    color:#007bff;
     font-size: 25px;
-    padding: 8px 12px;
-    margin: 8px 0;
+    color: grey;
+    padding: 10px 12px;
+    margin: 10px 0;
     border: none;
     border-radius: 35px;
     cursor: pointer;
@@ -250,7 +263,7 @@ footer {
     top: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin: 20% 0% 0% 0%;
+    margin: 4% 0% 0% 0%;
     padding: 0px 0px 0px 0px;
     text-align: center;
     position: relative;

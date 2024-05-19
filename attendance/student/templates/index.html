@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/static/css/style.css">
   <title>Attendance Management System</title>
 
 
@@ -29,19 +29,22 @@
 #nav{
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
   padding: 15px;
-    font-family: Georgia, serif;
-}
+  font-family: Georgia, serif;
+  
+  }
 
 
 @media(min-width: 950px){
     #nav-items{
         display: flex;
         justify-content: space-between;
-        margin-left: 470px;
+        margin-left: 400px;
         gap: 30px;
         padding: 0 10px;
         font-size: 20px;
         color: #f0f0f0;
+        animation: rightSideAni 1s ease forwards;
+    animation-delay: calc(.2s * var(--rightSideAni));
     }
     
 }
@@ -74,9 +77,17 @@
     font-size: 25px;
     font-family: Georgia, serif;
     margin-left: 20px;
-
+    animation: leftani 1s ease forwards;
+    animation-delay: calc(.2s * var(--leftani));
 }
 
+@media(max-width: 950px){
+    #nav-title{
+        margin-left: 0;
+        font-size: 20px;
+        
+    }
+}
 
 
 #nav-log{
@@ -84,6 +95,7 @@
     font-size: 20px;
     text-decoration: none;
     margin-top: 7px;
+    
 }
 
 #nav-name{
@@ -91,6 +103,7 @@
     font-size: 20px;
     text-decoration: none;
     margin-top: 8px;
+    
 }
 
 
@@ -98,35 +111,98 @@
 /*              Content               */
 
 .cont-title{
-    text-align: center;
-    font-size: 30px;
-    margin: 4% 0% 3% 0%;
+
+    text-align: left;
+    font-size: 46px;
+    margin: 0% 10% 5% 7%;
     position: relative;
     top: 20px;
     font-weight: bold;
     font-family: Georgia, serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: leftani 1s ease forwards;
+    animation-delay: calc(.2s * var(--leftani));
 }
 
-.image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    border-radius: 2%;
-    margin-top: 2%;
+.below-title{
+    text-align: left;
+    font-size: 30px;
+    margin: 10% 20% 0% 7%;
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+    font-family: Georgia, serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: leftani 1s ease forwards;
+    animation-delay: calc(.2s * var(--leftani));
+}
+
+.landparent{  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0% 0% 0% 0%;
+  padding: 0% 0% 5% 0%;
+  align-items: center;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: Georgia, serif;
+  font-size: 25px;  
+}
+
+.landa{
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    text-align: center;
+    font-size: 25px;
+    position: relative;
+    top: 20px;
+    padding: 0 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
 }
 
 .content{
     text-align: center;
     font-size: 25px;
-    margin: 4% 12% 3% 12%;
+    margin: 5% 12% 5% 12%;
+    position: relative;
+    top: 40px;
+    font-weight: bold;
+
+}
+
+.landb{
+    width: 100%;
+    margin: 0% 0% 0% 0%;
+    padding: 0% 0% 0% 0%;
+    text-align: center;
+    font-size: 25px;
     position: relative;
     top: 20px;
     padding: 0 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
 
-  }
+@media(max-width: 950px){
+    .landparent{
+      display: grid;
+      grid-template-columns: 1fr;
+      margin: 0% 0% 0% 0%;
+      padding: 0% 0% 30% 0%;
+    }  
+} 
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-radius: 2%;
+    margin-top: 20%;
+    animation: rightSideAni 1s ease forwards;
+    animation-delay: calc(.2s * var(--rightSideAni));
+}
+
 
 /*                Departments               */
 
@@ -141,7 +217,7 @@
 .dep-cont > h3{
     text-align: center;
     font-size: 30px;
-    margin: 4% 0% 5% 0%;
+    margin: 5% 0% 12% 0%;
     position: relative;
     top: 40px;
     font-weight: bold;
@@ -180,6 +256,15 @@ h4{
     padding: 20px;
     background-color: #f9f9f9;
     text-align: center;
+}
+
+.acard > h4{
+    font-size: 30px;
+    margin: 0% 0% 7.5% 0%;
+    position: relative;
+    top: 20px;
+    font-weight: bold;
+
 }
 
 .button1 {
@@ -388,6 +473,69 @@ footer {
     }
 }
 
+/*                Animation               */
+
+
+@keyframes leftani {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes navani {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes rightSideAni {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes topSideAni {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes SocialAni {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 </style>
 
@@ -399,7 +547,7 @@ footer {
   {% csrf_token %}
   <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
     <div class="container-fluid">
-      <a class="navbar-brand" id="nav-title" href="/index/">Horizon Crest University</a>
+      <a class="navbar-brand" id="nav-title" href="/index/">Attendance Management System</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -501,14 +649,25 @@ footer {
 
 
   <!--          Body            -->
+<div class="landparent">
+<div class="landa">
+  
+  <h1 class="cont-title">Horizon Crest University</h1>
+  <h2 class="below-title">Streamline attendance effortlessly with our innovative, user-friendly design for ultimate convenience.</h2>
+   </div>
+  <div class="landb">
+    <img src="/static/images/bg-remove.png" class="image">
+  </div>
+  
+</div>
+
+<p class="content">Welcome to Horizon Crest University's attendance system, where each class marks a step toward your
+  academic journey. Your presence matters as we track your commitment to excellence. Let's navigate the horizon of
+  knowledge together, one class at a time, shaping your success through punctuality and dedication.</p>
 
 
-  <h1 class="cont-title">Attendance Marking System</h1>
-  <img src="/static/images/bg-remove.png" class="image">
-  <p class="content">Welcome to Horizon Crest University's attendance system, where each class marks a step toward your
-    academic journey. Your presence matters as we track your commitment to excellence. Let's navigate the horizon of
-    knowledge together, one class at a time, shaping your success through punctuality and dedication.</p>
- 
+<!--          Departments          -->
+
 <div class="dep-cont">
   <h3>Departments</h3>
 
