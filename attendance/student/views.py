@@ -13,8 +13,10 @@ from django.views.decorators.csrf import csrf_exempt
 def home(request):
     return render(request, 'index.html')
 
+
 def index(request):
     return render(request, 'index.html')
+
 
 def register(request):
     if request.method == "POST":
@@ -35,7 +37,6 @@ def register(request):
             first_name=first_name,
             last_name=last_name,
         )
-
         messages.info(request, 'Account created successfully')
         return redirect('/login/')
 
@@ -46,7 +47,6 @@ def login_page(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-
         user = authenticate(username=username, password=password)
 
         if user is not None:
@@ -64,10 +64,19 @@ def logout_page(request):
     return redirect('/login/')
 
 
+def delete_user(request, student_id):
+    student = Student.objects.get(id=student_id)
+    student.delete()
+    return redirect('/login/')
+
+
+
 # Department views
 
 
+
 # Computer Engineering Department
+
 
 def ceone(request):
     students = Student.objects.all()
@@ -100,11 +109,9 @@ def ceone(request):
 
 
 
-
 def student_list(request):
     # Retrieve all students from the database
     students = Student.objects.all()
-    
     # Pass the list of students to the template for rendering
     return render(request, 'ceone.html', {'students': students})
 
@@ -137,7 +144,9 @@ def cereport(request):
     return render(request, 'cereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
 
 
+
 # Information Technology Department
+
 
 def get_student_attendance(student, distinct_dates):
     attendance_records = {}
@@ -202,8 +211,8 @@ def itreport(request):
 
 
 
-
 # Mechanical Engineering
+
 
 def get_student_attendance(student, distinct_dates):
     attendance_records = {}
@@ -268,8 +277,8 @@ def mereport(request):
 
 
 
-
 # Civil Engineering
+
 
 def get_student_attendance(student, distinct_dates):
     attendance_records = {}
@@ -334,9 +343,8 @@ def cvreport(request):
 
 
 
-
-
 # Aeronautical Engineering
+
 
 def get_student_attendance(student, distinct_dates):
     attendance_records = {}
@@ -401,9 +409,8 @@ def aereport(request):
 
 
 
-
-
 # Electrical Engineering
+
 
 def get_student_attendance(student, distinct_dates):
     attendance_records = {}
@@ -465,3 +472,4 @@ def eereport(request):
         student_attendance[student.id] = attendance_data
     
     return render(request, 'eereport.html', {'students': students, 'distinct_dates': distinct_dates, 'student_attendance': student_attendance})
+

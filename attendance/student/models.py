@@ -18,6 +18,8 @@ class CustomUser(AbstractUser):
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
 
+
+
 # Computer Engineering
 class Student(models.Model):
     name = models.CharField(max_length=100)
@@ -103,7 +105,6 @@ class StudentAttendancecv(models.Model):
 
 
 
-
 # Aeronautical Engineering
 
 class Studentae(models.Model):
@@ -123,7 +124,6 @@ class StudentAttendanceae(models.Model):
 
     def __str__(self):
         return f"{self.student.name} - {self.date} - {self.status}"
-
 
 
 
