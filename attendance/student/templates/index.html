@@ -10,6 +10,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <link icon="favion" href="/static/images/university.png" rel="icon">
   <title>Attendance Management System</title>
 
 
@@ -159,6 +160,8 @@
 .content{
     text-align: center;
     font-size: 25px;
+    font-family: Georgia, serif;
+    line-height: 40px;
     margin: 5% 12% 5% 12%;
     position: relative;
     top: 40px;
@@ -198,9 +201,25 @@
 
 /*          Department selection             */
 
-.dep-sel-parent{
+.selsem{
     text-align: center;
     margin: 0% 0% 0% 0%;
+    color: black;
+    padding: 0% 0% 5% 0%;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    position: relative;
+    top: 40px;
+    font-weight: bold;
+
+}
+
+.dep-sel-parent{
+    text-align: center;
+    margin: 0% 0% 100px 0%;
     padding: 0% 0% 0% 0%;
     align-items: center;
     text-align: center;
@@ -230,6 +249,21 @@
 
 }
 
+#department-select > option{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-align-last: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: Georgia, serif;
+    font-weight: bold;
+}
+
+@media(max-width: 950px){
+    #department-select{
+        width: 80%;
+    }
+}
 
 /*                Departments               */
 
@@ -326,10 +360,12 @@ h4{
     padding: 12px 30px 12px 30px;
 }
 
+
 /*      Contact       */
 
+
 .container1 {
-    margin: 0% 0% 0% 0%;
+    margin: 5% 0% 0% 0%;
     padding: 0% 0% 2% 0%;
     text-align: center;
 }
@@ -361,8 +397,8 @@ h4{
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     width: 30%;
     background-color:#fff;
-    font-size: 25px;
-    color: grey;
+    font-size: 25px;  
+    color: black;
     padding: 10px 12px;
     margin: 10px 0;
     border: none;
@@ -685,7 +721,7 @@ footer {
   <h2 class="below-title">Streamline attendance effortlessly with our innovative, user-friendly design for ultimate convenience.</h2>
    </div>
   <div class="landb">
-    <img src="/static/images/bg-remove.png" class="image">
+    <img src="/static/images/university.png" class="image">
   </div>
   
 </div>
@@ -696,9 +732,12 @@ footer {
 
 
 <!-- Department Selection -->
+
+<div class="selsem"><p>Select Semester</p></div>
+
 <div class="dep-sel-parent">
   <select id="department-select" onchange="showDepartments()">
-    <option value="all">Semester</option>
+    <option value="all">Select</option>
     <option value="Semester1">Semester 1</option>
     <option value="Semester2">Semester 2</option>
     <option value="Semester3">Semester 3</option>
@@ -711,9 +750,7 @@ footer {
 </div>
 
 
-
 <!--          Departments          -->
-
 
 
 <div class="dep-cont">
@@ -926,103 +963,3 @@ function loginFirst() {
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-
-  <nav class="navbar navbar-expand-lg bg-secondary-blue text-white">
-    <div class="container-fluid">
-      <a class="navbar-brand nav-title" href="/index/" style="margin-left: 6%; font-size: 30px;">Horizon Crest University</a>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 manual" style="margin-left: 75%; font-size: 18px;">
-          {% if request.user.is_authenticated %}
-          <li>
-            <a class="user-info-text nav-elements" style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
-          </li>
-          <li class="">
-            {% else %}
-          <li>
-            <a class="user-info-text nav-elements" style="color: black; white-space: nowrap;"></a>
-          </li>
-          <li class="">
-            {% endif %}
-
-
-
-            <form class="" role="search">
-              {% if request.user.is_authenticated %}
-          <li>
-            <a class="nav-elements" href="/logout/" type="submit">Logout</a>
-          </li>
-          {% else %}
-          <li>
-            <a class="nav-elements" href="/login/" type="submit">Login</a>
-          </li>
-          {% endif %}
-
-          </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
--->
