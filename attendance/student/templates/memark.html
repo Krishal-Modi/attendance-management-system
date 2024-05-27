@@ -11,32 +11,28 @@
     crossorigin="anonymous"></script>
   <link icon="favion" href="/static/images/university.png" rel="icon">
   <title>Mechanical Engineering</title>
-  
 
   <style>
+    body {
+      background-image: url('/static/images/bg.jfif');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-    background-image: url('/static/images/bg.jfif');
-    background-size: cover;
-    background-attachment :fixed;
-    background-repeat: no-repeat;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-}
+    /*          Navbar            */
 
-/*          Navbar            */
+    #nav {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      font-family: Georgia, serif;
+    }
 
-#nav{
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
-  padding: 15px;
-  font-family: Georgia, serif;
-  
-  }
-
-
-@media(min-width: 950px){
-    #nav-items{
+    @media(min-width: 950px) {
+      #nav-items {
         display: flex;
         justify-content: space-between;
         margin-left: 380px;
@@ -45,70 +41,72 @@ body{
         font-size: 20px;
         color: #f0f0f0;
         animation: rightSideAni 1s ease forwards;
-    animation-delay: calc(.2s * var(--rightSideAni));
-    }
-    
-}
+        animation-delay: calc(.2s * var(--rightSideAni));
+      }
 
-@media(max-width: 950px){
-    #nav-items{
+    }
+
+    @media(max-width: 950px) {
+      #nav-items {
         display: flex;
         justify-content: space-between;
         margin-left: 0;
         padding: 0 10px;
-        
-    font-size: 18px;
+
+        font-size: 18px;
         color: white;
+      }
+
     }
-    
-}
 
-.navbar-transparent {
-    background-color: transparent !important;
-}
+    .navbar-transparent {
+      background-color: transparent !important;
+    }
 
-.navbar-transparent .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for dropdowns */
-}
+    .navbar-transparent .dropdown-menu {
+      background-color: rgba(255, 255, 255, 0.9);
+      /* Slightly transparent white background for dropdowns */
+    }
 
-#nav-title{
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 25px;
-    font-family: Georgia, serif;
-    margin-left: 20px;
-    animation: leftani 1s ease forwards;
-    animation-delay: calc(.2s * var(--leftani));
-}
+    #nav-title {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 25px;
+      font-family: Georgia, serif;
+      margin-left: 20px;
+      animation: leftani 1s ease forwards;
+      animation-delay: calc(.2s * var(--leftani));
+    }
 
-@media(max-width: 950px){
-    #nav-title{
+    @media(max-width: 950px) {
+      #nav-title {
         margin-left: 0;
         font-size: 20px;
-        
+
+      }
     }
-}
 
 
-#nav-log{
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    margin-top: 7px;
-    
-}
+    #nav-log {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 7px;
 
-#nav-name{
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    margin-top: 8px;
-    
-}
+    }
+
+    #nav-name {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 8px;
+
+    }
 
 
-/*              Fields                */
+    /*              Fields                */
+
 
     .fields {
       display: flex;
@@ -151,14 +149,16 @@ body{
       margin: 0% 35% 0% 35%;
     }
 
+
     /*          Table           */
+
 
     #student-list>h2 {
       margin: 0% 10% 3% 10%;
       text-align: center;
     }
 
-    #student-list > h2{
+    #student-list>h2 {
       font-size: 30px;
       font-weight: bold;
     }
@@ -169,7 +169,6 @@ body{
       border-collapse: collapse;
       color: black;
     }
-
 
     th {
       border: 2px solid black;
@@ -187,45 +186,45 @@ body{
     }
 
     input[type="radio"] {
-        transform: scale(1.7); /* Adjust the scale factor as needed */
-        margin-right: 10px; /* Remove rounded corners */
-        border: 1px solid #333;
-        background-color: #f0f0f0;
+      transform: scale(1.7);
+      margin-right: 10px;
+      border: 1px solid #333;
+      background-color: #f0f0f0;
     }
 
     label {
-        font-size: 16px;
-        font-weight: bold;
+      font-size: 16px;
+      font-weight: bold;
     }
 
     input[type="radio"] {
       margin: 0% 5% 0% 5%;
     }
 
+
     /*                  Buttons                   */
+
 
     .buttonl {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0%;
       margin: 0% 15% 0% 15%;
+    }
 
-    } 
-
-    @media(max-width: 900px){
+    @media(max-width: 900px) {
       .buttonl {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0%;
         margin: 0% 15% 0% 15%;
-  
       }
-      
-      .home{
+
+      .home {
         margin: 0% 35% 10% 35%;
       }
 
-      .submit{
+      .submit {
         margin: 10% 35% 0% 35%;
       }
     }
@@ -242,7 +241,7 @@ body{
       margin: 0% 35% 0% 35%;
     }
 
-    .home>a{
+    .home>a {
       text-decoration: none;
       color: white;
     }
@@ -262,7 +261,7 @@ body{
       color: white;
     }
 
-    @media (max-width: 900px){
+    @media (max-width: 900px) {
       .numbercount {
         position: fixed;
         bottom: 0;
@@ -278,7 +277,7 @@ body{
       }
     }
 
-    .submit{
+    .submit {
       background-color: #007bff;
       color: white;
       font-size: 20px;
@@ -291,134 +290,134 @@ body{
     }
 
 
-/*                Footer                */
+    /*                Footer                */
 
 
-footer {
-    background-color: #007bff;
-    color: #ffff;
-    padding: 20px 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    position: relative;
-    top: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    margin: 5% 0% 0% 0%;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
-    font-size: 20px;
-}
+    footer {
+      background-color: #007bff;
+      color: #ffff;
+      padding: 20px 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      position: relative;
+      top: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin: 5% 0% 0% 0%;
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+      position: relative;
+      top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-.footer-columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 0;
-}
-
-
-.footer-column1 {
-    flex: 1;
-    margin: 1%;
-    margin-top: 4%;
-    margin-left: 14%;
-}
-
-.footer-column1 > p{
-    font-size: 30px;
-    padding: 0px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    margin: 20px 0px 0px 0px;
-}
-
-.footer-column1 > h3{
-    font-size: 30px;
-    padding: 0px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    margin: 0px;
-}
-
-.footer-column1 > p{
-    margin: 4%;
-    font-size: 20px;
-    padding: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column2 {
-    flex: 0.6;
-    margin: 1%;
-}
-
-.footer-column2 > ul{
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px
-} 
-
-.footer-column2 > ul > li{
-    margin: 4.6%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column2 > ul > li > a{
-    color: #ffff;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-.footer-column2 > ul > li > a:hover{
-    color: #C7C8CC;
-}
-
-.footer-column3 {
-    flex: 1;
-    margin: 1%;
-    margin-top: 4%;
-    margin-right: 14%;
-}
-
-.footer-column3 > p{
-    font-size: 25px;
-    margin: 0% 3% 0% 3%;
-    margin-bottom: 4%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column3 > p > a{
-    color: #ffff;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-@media (max-width: 700px) {
-    .footer-column1,
-    .footer-column2,
-    .footer-column3 {
-        flex: 100%;
-        margin: 1% 0;
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 0;
     }
 
     .footer-column1 {
+      flex: 1;
+      margin: 1%;
+      margin-top: 4%;
+      margin-left: 14%;
+    }
+
+    .footer-column1>p {
+      font-size: 30px;
+      padding: 0px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+      margin: 20px 0px 0px 0px;
+    }
+
+    .footer-column1>h3 {
+      font-size: 30px;
+      padding: 0px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+      margin: 0px;
+    }
+
+    .footer-column1>p {
+      margin: 4%;
+      font-size: 20px;
+      padding: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column2 {
+      flex: 0.6;
+      margin: 1%;
+    }
+
+    .footer-column2>ul {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px
+    }
+
+    .footer-column2>ul>li {
+      margin: 4.6%;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column2>ul>li>a {
+      color: #ffff;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .footer-column2>ul>li>a:hover {
+      color: #C7C8CC;
+    }
+
+    .footer-column3 {
+      flex: 1;
+      margin: 1%;
+      margin-top: 4%;
+      margin-right: 14%;
+    }
+
+    .footer-column3>p {
+      font-size: 25px;
+      margin: 0% 3% 0% 3%;
+      margin-bottom: 4%;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column3>p>a {
+      color: #ffff;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    @media (max-width: 700px) {
+
+      .footer-column1,
+      .footer-column2,
+      .footer-column3 {
+        flex: 100%;
+        margin: 1% 0;
+      }
+
+      .footer-column1 {
         margin-left: 0;
+      }
+
+      .footer-column2>ul>li>a:hover {
+        color: #C7C8CC;
+      }
     }
-
-    .footer-column2 > ul > li > a:hover{
-        color:#C7C8CC;
-    }
-}
-
-
   </style>
 </head>
+
 
 <body>
   {% load custom_filter %}
   {% csrf_token %}
+
   <!--                    Navbar                  -->
 
   <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
@@ -431,10 +430,9 @@ footer {
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul id="nav-items" class="navbar-nav">
-
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Report
             </a>
             {% if request.user.is_authenticated %}
@@ -454,14 +452,12 @@ footer {
               <li><a class="dropdown-item" href="">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
-
             </ul>
             {% endif %}
           </li>
-
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Mark
             </a>
             {% if request.user.is_authenticated %}
@@ -481,14 +477,11 @@ footer {
               <li><a class="dropdown-item" href="">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
-
             </ul>
             {% endif %}
           </li>
-
-          <li class ="nav-item">
+          <li class="nav-item">
             <a class="nav-link text-dark" href="#contactForm">Contact</a>
-
           <li class="">
             <form class="" role="search">
               <!-- Code for admin panel -->
@@ -504,164 +497,148 @@ footer {
 
           </form>
           </li>
-
-
-
           {% if request.user.is_authenticated %}
           <li id="nav-name">
-            <a class="user-info-text nav-elements text-dark" id="nav-name"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"
+              style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
           </li>
-            {% else %}
-          <li >
-            <a class="user-info-text nav-elements text-dark" id="nav-name" style="color: black; white-space: nowrap;"></a>
+          {% else %}
+          <li>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"
+              style="color: black; white-space: nowrap;"></a>
           </li>
-          
           {% endif %}
-          
         </ul>
       </div>
     </div>
   </nav>
 
-
-
-
   <!--          Body            -->
-
 
   <div id="content">
     <h1 class="contentheading">Mechanical Engineering</h1>
-
     <form method="post">
       {% csrf_token %}
       <div class="fields">
-          <input id="username" name="username" type="text" placeholder="User Name" required>
-          <input type="date" id="date" name="date" placeholder="Date" required>
-          <select id="time" name="time" required>
-              <option value="10:00">10:00am-11:00am</option>
-              <option value="11:00">11:00am-12:00pm</option>
-              <option value="13:00">1:00pm-2:00pm</option>
-              <option value="14:00">2:00pm-3:00pm</option>
-          </select>
+        <input id="username" name="username" type="text" placeholder="User Name" required>
+        <input type="date" id="date" name="date" placeholder="Date" required>
+        <select id="time" name="time" required>
+          <option value="10:00">10:00am-11:00am</option>
+          <option value="11:00">11:00am-12:00pm</option>
+          <option value="13:00">1:00pm-2:00pm</option>
+          <option value="14:00">2:00pm-3:00pm</option>
+        </select>
       </div>
 
       <div id="student-list">
-          <h2>Student List</h2>
-          <table class="main-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Roll Number</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for student in students %}
-                    <tr>
-                        <td>{{ student.name }}</td>
-                        <td>{{ student.roll_number }}</td>
-                        <td>
-                          <input type="radio" name="attendance_{{ student.id }}" value="present" id="present">
-                          <label for="present">Present</label>
-                          
-                          <input type="radio" name="attendance_{{ student.id }}" value="absent" id="absent">
-                          <label for="absent">Absent</label>
-                          
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
+        <h2>Student List</h2>
+        <table class="main-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll Number</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+            <tr>
+              <td>{{ student.name }}</td>
+              <td>{{ student.roll_number }}</td>
+              <td>
+                <input type="radio" name="attendance_{{ student.id }}" value="present" id="present">
+                <label for="present">Present</label>
+
+                <input type="radio" name="attendance_{{ student.id }}" value="absent" id="absent">
+                <label for="absent">Absent</label>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
         </table>
       </div>
-
       <div class="buttonl">
         <button class="home" type="button"><a href="/index/">Home</a></button>
         <button class="submit" type="submit">Submit</button>
       </div>
-      
       <div><input type="text" class="numbercount" id="presentNumber" readonly></div>
     </form>
-</div>
+  </div>
 
-<!--              Footer                  -->
+  <!--              Footer                  -->
 
-
-
-<footer>
-  <div class="footer-columns">
+  <footer>
+    <div class="footer-columns">
       <div class="footer-column1">
-        <h3>Horizon Crest University</h3>  
+        <h3>Horizon Crest University</h3>
         <p>Attendance Management <br> System</p>
       </div>
       <div class="footer-column2">
-          <ul class="foot-list"> 
-              <li><a href="/index/">Dashboard</a></li>
-              <li><a href="/index/#contactForm">Raise a Query</a></li>
-              <li><a href="/logout/">Logout</a></li>
-              <li><a href="/delete_user/">Delete Account</a></li>
-          </ul>
+        <ul class="foot-list">
+          <li><a href="/index/">Dashboard</a></li>
+          <li><a href="/index/#contactForm">Raise a Query</a></li>
+          <li><a href="/logout/">Logout</a></li>
+          <li><a href="/delete_user/">Delete Account</a></li>
+        </ul>
       </div>
       <div class="footer-column3">
-          <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
-          <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
+        <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
+        <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
       </div>
-  </div>
-</footer>
+    </div>
+  </footer>
 
 
+  <script href="/static/js/mark.js">
 
-<script href="/static/js/mark.js">
 
-
-window.onload = function() {
+    window.onload = function () {
       var presentRadios = document.querySelectorAll('input[type="radio"][value="present"]');
       var absentRadios = document.querySelectorAll('input[type="radio"][value="absent"]');
       var presentCountDisplay = document.getElementById('presentNumber');
       var attendance = {}; // To keep track of the attendance status of each student
 
       var presentCount = 0;
-
       // Initialize attendance object
-      presentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
-          attendance[studentId] = "absent";
+      presentRadios.forEach(function (radio) {
+        var studentId = radio.name.split('_')[1];
+        attendance[studentId] = "absent";
       });
 
       // Event listeners for "Present" radio buttons
-      presentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
+      presentRadios.forEach(function (radio) {
+        var studentId = radio.name.split('_')[1];
 
-          radio.addEventListener('change', function() {
-              if (this.checked && attendance[studentId] === "absent") {
-                  presentCount++;
-                  attendance[studentId] = "present";
-              } else if (!this.checked && attendance[studentId] === "present") {
-                  presentCount--;
-                  attendance[studentId] = "absent";
-              }
-              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
-          });
+        radio.addEventListener('change', function () {
+          if (this.checked && attendance[studentId] === "absent") {
+            presentCount++;
+            attendance[studentId] = "present";
+          } else if (!this.checked && attendance[studentId] === "present") {
+            presentCount--;
+            attendance[studentId] = "absent";
+          }
+          presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
+        });
       });
 
       // Event listeners for "Absent" radio buttons
-      absentRadios.forEach(function(radio) {
-          var studentId = radio.name.split('_')[1];
+      absentRadios.forEach(function (radio) {
+        var studentId = radio.name.split('_')[1];
 
-          radio.addEventListener('change', function() {
-              if (this.checked && attendance[studentId] === "present") {
-                  presentCount--;
-                  attendance[studentId] = "absent";
-              } else if (!this.checked && attendance[studentId] === "absent") {
-                  presentCount++;
-                  attendance[studentId] = "present";
-              }
-              presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
-          });
+        radio.addEventListener('change', function () {
+          if (this.checked && attendance[studentId] === "present") {
+            presentCount--;
+            attendance[studentId] = "absent";
+          } else if (!this.checked && attendance[studentId] === "absent") {
+            presentCount++;
+            attendance[studentId] = "present";
+          }
+          presentCountDisplay.value = presentCount >= 0 ? presentCount : 0;
+        });
       });
-  };
+    };
 
-
-</script>
+  </script>
 
 </body>
 

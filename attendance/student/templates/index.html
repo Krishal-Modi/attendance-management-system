@@ -13,30 +13,28 @@
   <link icon="favion" href="/static/images/university.png" rel="icon">
   <title>Attendance Management System</title>
 
+  <style>
+    body {
+      background-image: url('/static/images/bg.jfif');
+      background-size: cover;
+      background-repeat: no-repeat;
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+    }
 
 
-<style>
-  body{
-    background-image: url('/static/images/bg.jfif');
-    background-size: cover;
-    background-repeat: no-repeat;
-    font-family: Georgia, serif;
-    margin: 0;
-    padding: 0;
-}
-
-/*          Navbar            */
-
-#nav{
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
-  padding: 15px;
-  font-family: Georgia, serif;
-  
-  }
+    /*          Navbar            */
 
 
-@media(min-width: 950px){
-    #nav-items{
+    #nav {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      font-family: Georgia, serif;
+    }
+
+    @media(min-width: 950px) {
+      #nav-items {
         display: flex;
         justify-content: space-between;
         margin-left: 400px;
@@ -44,571 +42,510 @@
         padding: 0 10px;
         font-size: 20px;
         color: #f0f0f0;
+      }
     }
-    
-}
 
-@media(max-width: 950px){
-    #nav-items{
+    @media(max-width: 950px) {
+      #nav-items {
         display: flex;
         justify-content: space-between;
         margin-left: 0;
         padding: 0 10px;
-        
-    font-size: 18px;
+        font-size: 18px;
         color: white;
+      }
+
     }
-    
-}
 
-.navbar-transparent {
-    background-color: transparent !important;
-}
+    .navbar-transparent {
+      background-color: transparent !important;
+    }
 
-.navbar-transparent .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background for dropdowns */
-}
+    .navbar-transparent .dropdown-menu {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
 
-#nav-title{
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 25px;
-    font-family: Georgia, serif;
-}
+    #nav-title {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 25px;
+      font-family: Georgia, serif;
+    }
 
-@media(max-width: 950px){
-    #nav-title{
+    @media(max-width: 950px) {
+      #nav-title {
         margin-left: 0;
         font-size: 20px;
-        
+      }
     }
-}
+
+    #nav-log {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 7px;
+    }
+
+    #nav-name {
+      color: black;
+      font-size: 20px;
+      text-decoration: none;
+      margin-top: 8px;
+    }
 
 
-#nav-log{
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    margin-top: 7px;
-    
-}
+    /*              Content               */
 
-#nav-name{
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    margin-top: 8px;
-    
-}
+    .cont-title {
+      text-align: left;
+      font-size: 46px;
+      margin: 0% 10% 5% 7%;
+      position: relative;
+      top: 20px;
+      font-weight: bold;
+      font-family: Georgia, serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: leftani 1s ease forwards;
+      animation-delay: calc(.2s * var(--leftani));
+    }
 
+    .below-title {
+      text-align: left;
+      font-size: 30px;
+      margin: 10% 20% 0% 7%;
+      position: relative;
+      top: 20px;
+      font-weight: bold;
+      font-family: Georgia, serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: leftani 1s ease forwards;
+      animation-delay: calc(.2s * var(--leftani));
+    }
 
-
-/*              Content               */
-
-.cont-title{
-
-    text-align: left;
-    font-size: 46px;
-    margin: 0% 10% 5% 7%;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
-    font-family: Georgia, serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: leftani 1s ease forwards;
-    animation-delay: calc(.2s * var(--leftani));
-}
-
-.below-title{
-    text-align: left;
-    font-size: 30px;
-    margin: 10% 20% 0% 7%;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
-    font-family: Georgia, serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: leftani 1s ease forwards;
-    animation-delay: calc(.2s * var(--leftani));
-}
-
-.landparent{  
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 0% 0% 0% 0%;
-  padding: 0% 0% 5% 0%;
-  align-items: center;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: Georgia, serif;
-  font-size: 25px;  
-}
-
-.landa{
-    width: 100%;
-    margin: 0% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    text-align: center;
-    font-size: 25px;
-    position: relative;
-    top: 20px;
-    padding: 0 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);  
-}
-
-.content{
-    text-align: center;
-    font-size: 25px;
-    font-family: Georgia, serif;
-    line-height: 40px;
-    margin: 5% 12% 5% 12%;
-    position: relative;
-    top: 40px;
-    font-weight: bold;
-
-}
-
-.landb{
-    width: 100%;
-    margin: 0% 0% 0% 0%;
-    padding: 0% 0% 0% 0%;
-    text-align: center;
-    font-size: 25px;
-    position: relative;
-    top: 20px;
-    padding: 0 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-@media(max-width: 950px){
-    .landparent{
+    .landparent {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       margin: 0% 0% 0% 0%;
-      padding: 0% 0% 30% 0%;
-    }  
-} 
-
-.image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    border-radius: 2%;
-    margin-top: 20%;
-}
-
-/*          Department selection             */
-
-.selsem{
-    text-align: center;
-    margin: 0% 0% 0% 0%;
-    color: black;
-    padding: 0% 0% 5% 0%;
-    align-items: center;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Georgia, serif;
-    font-size: 25px;
-    position: relative;
-    top: 40px;
-    font-weight: bold;
-
-}
-
-.dep-sel-parent{
-    text-align: center;
-    margin: 0% 0% 100px 0%;
-    padding: 0% 0% 0% 0%;
-    align-items: center;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Georgia, serif;
-    font-size: 25px;
-    position: relative;
-    top: 40px;
-    font-weight: bold;
-}
-
-#department-select{
-    width: 350px;
-    padding: 12px 20px;
-    margin: 0px 0px 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    font-size: 20px;
-    text-align: center;
-    text-align-last: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Georgia, serif;
-    font-weight: bold;
-    background-color: #f9f9f9;
-
-}
-
-#department-select > option{
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    text-align-last: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: Georgia, serif;
-    font-weight: bold;
-}
-
-@media(max-width: 950px){
-    #department-select{
-        width: 80%;
+      padding: 0% 0% 5% 0%;
+      align-items: center;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: Georgia, serif;
+      font-size: 25px;
     }
-}
 
-/*                Departments               */
+    .landa {
+      width: 100%;
+      margin: 0% 0% 0% 0%;
+      padding: 0% 0% 0% 0%;
+      text-align: center;
+      font-size: 25px;
+      position: relative;
+      top: 20px;
+      padding: 0 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 
-.dep-cont{
-    margin: 0% 0% 2% 0%;
-    padding: 2% 0% 2% 0%;
-    align-items: center;
-    text-align: center;
-    display: none;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+    .content {
+      text-align: center;
+      font-size: 25px;
+      font-family: Georgia, serif;
+      line-height: 40px;
+      margin: 5% 12% 5% 12%;
+      position: relative;
+      top: 40px;
+      font-weight: bold;
+    }
 
-.dep-cont > h3{
-    text-align: center;
-    font-size: 30px;
-    display: none;
-    margin: 5% 0% 12% 0%;
-    position: relative;
-    top: 40px;
-    font-weight: bold;
+    .landb {
+      width: 100%;
+      margin: 0% 0% 0% 0%;
+      padding: 0% 0% 0% 0%;
+      text-align: center;
+      font-size: 25px;
+      position: relative;
+      top: 20px;
+      padding: 0 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
 
-}
+    @media(max-width: 950px) {
+      .landparent {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 30% 0%;
+      }
+    }
 
-.cont{
-    display: flex;
-    margin: 5% 0% 3% 0%;
-    padding: 0% 0% 0% 0%;
-    justify-content: center; 
-}
+    .image {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      border-radius: 2%;
+      margin-top: 20%;
+    }
 
-h4{
-    font-size: 25px;
-    font-weight: bold;
-    margin: 0% 0% 5% 0%;
-    position: relative;
-    top: 20px;
 
-}
+    /*          Department selection             */
 
-@media(max-width: 950px){
-    h4{
+
+    .selsem {
+      text-align: center;
+      margin: 0% 0% 0% 0%;
+      color: black;
+      padding: 0% 0% 1% 0%;
+      align-items: center;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: Georgia, serif;
+      font-size: 25px;
+      position: relative;
+      top: 40px;
+      font-weight: bold;
+    }
+
+    .dep-sel-parent {
+      text-align: center;
+      margin: 0% 0% 100px 0%;
+      padding: 0% 0% 0% 0%;
+      align-items: center;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: Georgia, serif;
+      font-size: 25px;
+      position: relative;
+      top: 40px;
+      font-weight: bold;
+    }
+
+    #department-select {
+      width: 350px;
+      padding: 12px 20px;
+      margin: 0px 0px 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 20px;
+      text-align: center;
+      text-align-last: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: Georgia, serif;
+      font-weight: bold;
+      background-color: #f9f9f9;
+    }
+
+    #department-select>option {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-align-last: center;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: Georgia, serif;
+      font-weight: bold;
+    }
+
+    @media(max-width: 950px) {
+      #department-select {
+        width: 80%;
+      }
+    }
+
+
+    /*                Departments               */
+
+
+    .dep-cont {
+      margin: 0% 0% 2% 0%;
+      padding: 1% 0% 2% 0%;
+      align-items: center;
+      text-align: center;
+      display: none;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .dep-cont>h3 {
+      text-align: center;
+      font-size: 30px;
+      display: none;
+      margin: 5% 0% 12% 0%;
+      position: relative;
+      top: 40px;
+      font-weight: bold;
+    }
+
+    .cont {
+      display: flex;
+      margin: 5% 0% 3% 0%;
+      padding: 0% 0% 0% 0%;
+      justify-content: center;
+    }
+
+    h4 {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0% 0% 5% 0%;
+      position: relative;
+      top: 20px;
+    }
+
+    @media(max-width: 950px) {
+      h4 {
         font-size: 20px;
         margin: 0% 0% 8% 0%;
+      }
     }
-}
 
-.acard {
-    align-items: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 70%;
-    margin: 0px 20px 0px 20px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    text-align: center;
-}
+    .acard {
+      align-items: center;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      width: 70%;
+      margin: 0px 20px 0px 20px;
+      border-radius: 5px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      text-align: center;
+    }
 
-.acard > h4{
-    font-size: 30px;
-    margin: 0% 0% 7.5% 0%;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
+    .acard>h4 {
+      font-size: 30px;
+      margin: 0% 0% 7.5% 0%;
+      position: relative;
+      top: 20px;
+      font-weight: bold;
+    }
 
-}
+    .button1 {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 0px 0px 10px 20px;
+    }
 
-.button1 {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 0px 0px 10px 20px;
-}
+    .button1>a {
+      text-decoration: none;
+      color: white;
+      padding: 12px 30px 12px 30px;
+    }
 
-.button1 > a{
-    text-decoration: none;
-    color: white;
-    padding: 12px 30px 12px 30px;
-}
+    .button2 {
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin: 0px 0px 10px 20px;
+    }
 
-.button2 {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 0px 0px 10px 20px;
-}
-
-.button2 > a{
-    text-decoration: none;
-    color: white;
-    padding: 12px 30px 12px 30px;
-}
+    .button2>a {
+      text-decoration: none;
+      color: white;
+      padding: 12px 30px 12px 30px;
+    }
 
 
-/*      Contact       */
+    /*      Contact       */
 
 
-.container1 {
-    margin: 5% 0% 0% 0%;
-    padding: 0% 0% 2% 0%;
-    text-align: center;
-}
+    .container1 {
+      margin: 5% 0% 0% 0%;
+      padding: 0% 0% 2% 0%;
+      text-align: center;
+    }
 
-.query{
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    font-size: 30px;
-    color: white;
-    margin: 3% 0% 5% 0%;
-    position: relative;
-    top: 10px;
-    font-weight: bold;
+    .query {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      font-size: 30px;
+      color: white;
+      margin: 3% 0% 5% 0%;
+      position: relative;
+      top: 10px;
+      font-weight: bold;
+    }
 
-}
+    .ctype {
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      width: 40%;
+      padding: 14px 20px;
+      margin: 14px 0;
+      border-radius: 35px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
 
-.ctype{
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    width: 40%;
-    padding: 14px 20px;
-    margin: 14px 0;
-    border-radius: 35px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+    .csubmit {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      width: 30%;
+      background-color: #fff;
+      font-size: 25px;
+      color: black;
+      padding: 10px 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 35px;
+      cursor: pointer;
+    }
 
-.csubmit{
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    width: 30%;
-    background-color:#fff;
-    font-size: 25px;  
-    color: black;
-    padding: 10px 12px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 35px;
-    cursor: pointer;
-
-}
-
-@media(max-width: 950px){
-    .ctype{
+    @media(max-width: 950px) {
+      .ctype {
         width: 80%;
-    }
+      }
 
-    .csubmit{
+      .csubmit {
         width: 60%;
+      }
     }
-}
 
 
-/*              Footer                */
-
-footer {
-    background-color: #007bff;
-    color: #ffff;
-    padding: 20px 0;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    position: relative;
-    top: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    margin: 4% 0% 0% 0%;
-    padding: 0px 0px 0px 0px;
-    text-align: center;
-    position: relative;
-    top: 20px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.footer-columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-bottom: 0;
-}
+    /*              Footer                */
 
 
-.footer-column1 {
-    flex: 1;
-    margin: 1%;
-    margin-top: 4%;
-    margin-left: 14%;
-}
+    footer {
+      background-color: #007bff;
+      color: #ffff;
+      padding: 20px 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+      position: relative;
+      top: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin: 4% 0% 0% 0%;
+      padding: 0px 0px 0px 0px;
+      text-align: center;
+      position: relative;
+      top: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
 
-.footer-column1 > p{
-    font-size: 30px;
-    padding: 0px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    margin: 20px 0px 0px 0px;
-}
-
-.footer-column1 > h3{
-    font-size: 30px;
-    padding: 0px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    margin: 0px;
-}
-
-.footer-column1 > p{
-    margin: 4%;
-    font-size: 20px;
-    padding: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column2 {
-    flex: 0.6;
-    margin: 1%;
-}
-
-.footer-column2 > ul{
-    list-style-type: none;
-    padding: 0px;
-    margin: 0px
-} 
-
-.footer-column2 > ul > li{
-    margin: 4.6%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column2 > ul > li > a{
-    color: #ffff;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-.footer-column2 > ul > li > a:hover{
-    color: #C7C8CC;
-}
-
-.footer-column3 {
-    flex: 1;
-    margin: 1%;
-    margin-top: 4%;
-    margin-right: 14%;
-}
-
-.footer-column3 > p{
-    font-size: 25px;
-    margin: 0% 3% 0% 3%;
-    margin-bottom: 4%;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-}
-
-.footer-column3 > p > a{
-    color: #ffff;
-    text-decoration: none;
-    font-size: 22px;
-}
-
-@media (max-width: 700px) {
-    .footer-column1,
-    .footer-column2,
-    .footer-column3 {
-        flex: 100%;
-        margin: 1% 0;
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding-bottom: 0;
     }
 
     .footer-column1 {
+      flex: 1;
+      margin: 1%;
+      margin-top: 4%;
+      margin-left: 14%;
+    }
+
+    .footer-column1>p {
+      font-size: 30px;
+      padding: 0px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+      margin: 20px 0px 0px 0px;
+    }
+
+    .footer-column1>h3 {
+      font-size: 30px;
+      padding: 0px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+      margin: 0px;
+    }
+
+    .footer-column1>p {
+      margin: 4%;
+      font-size: 20px;
+      padding: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column2 {
+      flex: 0.6;
+      margin: 1%;
+    }
+
+    .footer-column2>ul {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px
+    }
+
+    .footer-column2>ul>li {
+      margin: 4.6%;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column2>ul>li>a {
+      color: #ffff;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    .footer-column2>ul>li>a:hover {
+      color: #C7C8CC;
+    }
+
+    .footer-column3 {
+      flex: 1;
+      margin: 1%;
+      margin-top: 4%;
+      margin-right: 14%;
+    }
+
+    .footer-column3>p {
+      font-size: 25px;
+      margin: 0% 3% 0% 3%;
+      margin-bottom: 4%;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
+    }
+
+    .footer-column3>p>a {
+      color: #ffff;
+      text-decoration: none;
+      font-size: 22px;
+    }
+
+    @media (max-width: 700px) {
+
+      .footer-column1,
+      .footer-column2,
+      .footer-column3 {
+        flex: 100%;
+        margin: 1% 0;
+      }
+
+      .footer-column1 {
         margin-left: 0;
+      }
+
+      .footer-column2>ul>li>a:hover {
+        color: #C7C8CC;
+      }
     }
 
-    .footer-column2 > ul > li > a:hover{
-        color:#C7C8CC;
-    }
-}
 
-/*                Animation               */
+    /*                Animation               */
 
 
-@keyframes leftani {
-    0% {
+    @keyframes leftani {
+      0% {
         transform: translateX(-50px);
         opacity: 0;
-    }
+      }
 
-    100% {
+      100% {
         transform: translateX(0);
         opacity: 1;
+      }
     }
-}
-
-@keyframes navani {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes rightSideAni {
-    0% {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes topSideAni {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes SocialAni {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-
-</style>
-
+  </style>
 
 </head>
 
 <body>
- 
+
   {% csrf_token %}
   <nav class="navbar navbar-expand-lg navbar-transparent bg-body-tertiary" id="nav">
     <div class="container-fluid">
@@ -620,10 +557,9 @@ footer {
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul id="nav-items" class="navbar-nav">
-
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Report
             </a>
             {% if request.user.is_authenticated %}
@@ -643,14 +579,13 @@ footer {
               <li><a class="dropdown-item" href="">Civil Engineering</a></li>
               <li><a class="dropdown-item" href="">Aeronautical Engineering</a></li>
               <li><a class="dropdown-item" href="">Electrical Engineering</a></li>
-
             </ul>
             {% endif %}
           </li>
 
-
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
               Mark
             </a>
             {% if request.user.is_authenticated %}
@@ -675,7 +610,7 @@ footer {
             {% endif %}
           </li>
 
-          <li class ="nav-item">
+          <li class="nav-item">
             <a class="nav-link text-dark" href="#contactForm">Contact</a>
 
           <li class="">
@@ -694,19 +629,19 @@ footer {
           </form>
           </li>
 
-
-
           {% if request.user.is_authenticated %}
           <li id="nav-name">
-            <a class="user-info-text nav-elements text-dark" id="nav-name"  style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"
+              style="color: black; white-space: nowrap;">Prof. {{ user.username }}</a>
           </li>
-            {% else %}
-          <li >
-            <a class="user-info-text nav-elements text-dark" id="nav-name" style="color: black; white-space: nowrap;"></a>
+          {% else %}
+          <li>
+            <a class="user-info-text nav-elements text-dark" id="nav-name"
+              style="color: black; white-space: nowrap;"></a>
           </li>
-          
+
           {% endif %}
-          
+
         </ul>
       </div>
     </div>
@@ -714,252 +649,247 @@ footer {
 
 
   <!--          Body            -->
-<div class="landparent">
-<div class="landa">
-  
-  <h1 class="cont-title">Horizon Crest University</h1>
-  <h2 class="below-title">Streamline attendance effortlessly with our innovative, user-friendly design for ultimate convenience.</h2>
-   </div>
-  <div class="landb">
-    <img src="/static/images/university.png" class="image">
+
+  <div class="landparent">
+    <div class="landa">
+
+      <h1 class="cont-title">Horizon Crest University</h1>
+      <h2 class="below-title">Streamline attendance effortlessly with our innovative, user-friendly design for ultimate
+        convenience.</h2>
+    </div>
+    <div class="landb">
+      <img src="/static/images/university.png" class="image">
+    </div>
   </div>
-  
-</div>
-
-<p class="content">Welcome to Horizon Crest University's attendance system, where each class marks a step toward your
-  academic journey. Your presence matters as we track your commitment to excellence. Let's navigate the horizon of
-  knowledge together, one class at a time, shaping your success through punctuality and dedication.</p>
+  <p class="content">Welcome to Horizon Crest University's attendance system, where each class marks a step toward your
+    academic journey. Your presence matters as we track your commitment to excellence. Let's navigate the horizon of
+    knowledge together, one class at a time, shaping your success through punctuality and dedication.</p>
 
 
-<!-- Department Selection -->
-
-<div class="selsem"><p>Select Semester</p></div>
-
-<div class="dep-sel-parent">
-  <select id="department-select" onchange="showDepartments()">
-    <option value="all">Select</option>
-    <option value="Semester1">Semester 1</option>
-    <option value="Semester2">Semester 2</option>
-    <option value="Semester3">Semester 3</option>
-    <option value="Semester4">Semester 4</option>
-    <option value="Semester5">Semester 5</option>
-    <option value="Semester6">Semester 6</option>
-    <option value="Semester7">Semester 7</option>
-    <option value="Semester8">Semester 8</option>
-  </select>
-</div>
+  <!--        Department Selection       -->
 
 
-<!--          Departments          -->
+  <div class="selsem">
+    <p>Select Semester</p>
+  </div>
+
+  <div class="dep-sel-parent">
+    <select id="department-select" onchange="showDepartments()">
+      <option value="all">Select</option>
+      <option value="Semester1">Semester 1</option>
+      <option value="Semester2">Semester 2</option>
+      <option value="Semester3">Semester 3</option>
+      <option value="Semester4">Semester 4</option>
+      <option value="Semester5">Semester 5</option>
+      <option value="Semester6">Semester 6</option>
+      <option value="Semester7">Semester 7</option>
+      <option value="Semester8">Semester 8</option>
+    </select>
+  </div>
 
 
-<div class="dep-cont">
-  <h3>Departments</h3>
+  <!--            Departments           -->
 
-  <div class="cont">
-    <div class="acard">
-      <h4>Computer Engineering</h4>
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Mark</a>
-        {% endif %}
-      </button>
-    
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
+
+  <div class="dep-cont">
+    <h3>Departments</h3>
+
+    <div class="cont">
+      <div class="acard">
+        <h4>Computer Engineering</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/ceone/">Mark</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/cereport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="cont">
+      <div class="acard">
+        <h4>Information Technology</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/itmark/">Mark</a>
+          {% else %}
+          <a onclick="loginFirst()" href="">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/itreport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="cont">
+      <div class="acard">
+        <h4>Mechanical Engineering</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/memark/">Mark</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/mereport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="cont">
+      <div class="acard">
+        <h4>Civil Engineering</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/cvmark/">Mark</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/cvreport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="cont">
+      <div class="acard">
+        <h4>Aeronautical Engineering</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/ceone/">Mark</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/cereport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
+    </div>
+
+
+    <div class="cont last">
+      <div class="acard">
+        <h4>Electrical Engineering</h4>
+        <button class="button2">
+          {% if request.user.is_authenticated %}
+          <a href="/ceone/">Mark</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Mark</a>
+          {% endif %}
+        </button>
+
+        <button class="button1">
+          {% if request.user.is_authenticated %}
+          <a href="/cereport/">Report</a>
+          {% else %}
+          <a href="" onclick="loginFirst()">Report</a>
+          {% endif %}
+        </button>
+      </div>
     </div>
   </div>
 
 
-  <div class="cont">
-    <div class="acard">
-      <h4>Information Technology</h4>
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/itmark/">Mark</a>
-        {% else %}
-        <a onclick="loginFirst()" href="" >Mark</a>
-        {% endif %}
-      </button>
-    
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/itreport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
-    </div>
-  </div>
+  <!--                      Contact                     -->
 
 
-  <div class="cont">
-    <div class="acard">
-      <h4>Mechanical Engineering</h4>
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/memark/">Mark</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Mark</a>
-        {% endif %}
-      </button>
-      
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/mereport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
-    </div>
-  </div>
+  <div class="container1">
+    <h1 class="query">Raise a Query</h1>
+    <form method="post" id="contactForm">
+      {% csrf_token %}
+      <input type="text" class="ctype" id="name" placeholder="Name" name="name" required><br>
+
+      <input type="email" id="email" class="ctype" placeholder="Email" name="email" required><br>
+
+      <input type="tel" id="phone" class="ctype" placeholder="Contact Number" name="phone" required><br>
+
+      <textarea id="description" class="ctype" placeholder="Description" name="description" required></textarea><br>
+
+      <input class="csubmit" type="submit" value="Submit">
+    </form>
 
 
-  <div class="cont">
-    <div class="acard">
-      <h4>Civil Engineering</h4>
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/cvmark/">Mark</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Mark</a>
-        {% endif %}
-      </button>
-      
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/cvreport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
-    </div>
-  </div>
+    <!--                    Footer                     -->
 
 
-  <div class="cont">
-    <div class="acard">
-      <h4>Aeronautical Engineering</h4>
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Mark</a>
-        {% endif %}
-      </button>
-      
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
-    </div>
-  </div>
-
-
-  <div class="cont last">
-    <div class="acard">
-      <h4>Electrical Engineering</h4>
-      
-      <button class="button2">
-        {% if request.user.is_authenticated %}
-        <a href="/ceone/">Mark</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Mark</a>
-        {% endif %}
-      </button>
-
-      <button class="button1">
-        {% if request.user.is_authenticated %}
-        <a href="/cereport/">Report</a>
-        {% else %}
-        <a href="" onclick="loginFirst()">Report</a>
-        {% endif %}
-      </button>
-      
-    </div>
-  </div>
-</div>
-
-
-<!--                      Contact                     -->
-
-
-<div class="container1">
-  <h1 class="query">Raise a Query</h1>
-  <form method="post" id="contactForm">
-    {% csrf_token %}
-    <input type="text" class="ctype" id="name" placeholder="Name" name="name" required><br>
-    
-    <input type="email" id="email" class="ctype" placeholder="Email" name="email" required><br>
-    
-    <input type="tel" id="phone" class="ctype" placeholder="Contact Number" name="phone" required><br>
-
-    <textarea id="description" class="ctype" placeholder="Description" name="description" required></textarea><br>
-    
-    <input class="csubmit" type="submit" value="Submit">
-</form>
-
-
-<!--                    Footer                     -->
-
-
-  <footer>
-    <div class="footer-columns">
+    <footer>
+      <div class="footer-columns">
         <div class="footer-column1">
-          <h3>Horizon Crest University</h3>  
+          <h3>Horizon Crest University</h3>
           <p>Attendance Management <br> System</p>
         </div>
         <div class="footer-column2">
-            <ul class="foot-list"> 
-                <li><a href="/index/">Dashboard</a></li>
-                <li><a href="/service/">Raise a Query</a></li>
-                <li><a href="/about/">Privacy Policy</a></li>
-                <li><a href="/contact/">Delete Account</a></li>
-            </ul>
+          <ul class="foot-list">
+            <li><a href="/index/">Dashboard</a></li>
+            <li><a href="/service/">Raise a Query</a></li>
+            <li><a href="/about/">Privacy Policy</a></li>
+            <li><a href="/contact/">Delete Account</a></li>
+          </ul>
         </div>
         <div class="footer-column3">
-            <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
-            <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
+          <p>Email: <a href="mailto:#">horicrestuni@gmail.com</a> </p>
+          <p>Phone: <a href="tel:#">+91 2554221166</a> </p>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
 
-<script>
+    <script>
 
-function loginFirst() {
-      alert("Please log in first to access this feature.");
-    }
-
-     function showDepartments() {
-      const semesterSelect = document.getElementById('department-select');
-      const selectedSemester = semesterSelect.value;
-      const departmentContainer = document.querySelector('.dep-cont');
-
-      if (selectedSemester !== 'all') {
-        departmentContainer.style.display = 'block';
-      } else {
-        departmentContainer.style.display = 'none';
+      function loginFirst() {
+        alert("Please log in first to access this feature.");
       }
-    }
 
-</script>
+      function showDepartments() {
+        const semesterSelect = document.getElementById('department-select');
+        const selectedSemester = semesterSelect.value;
+        const departmentContainer = document.querySelector('.dep-cont');
+
+        if (selectedSemester !== 'all') {
+          departmentContainer.style.display = 'block';
+        } else {
+          departmentContainer.style.display = 'none';
+        }
+      }
+
+    </script>
 </body>
 
 </html>
-
