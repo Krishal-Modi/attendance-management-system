@@ -201,6 +201,38 @@
       margin: 0% 5% 0% 5%;
     }
 
+    /*                Submit Message              */
+    
+    .alert {
+      padding: 20px;
+      background-color: #1170C0;
+      color: white;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000; /* Ensure it's above other content */
+      display: none; /* Hide initially */
+    }
+
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+
 
     /*                  Buttons                   */
 
@@ -290,126 +322,7 @@
     }
 
 
-    /*                Footer                */
 
-
-    footer {
-      background-color: #007bff;
-      color: #ffff;
-      padding: 20px 0;
-      font-family: 'Roboto', sans-serif;
-      font-size: 20px;
-      position: relative;
-      top: 20px;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      border-radius: 5px;
-      margin: 5% 0% 0% 0%;
-      padding: 0px 0px 0px 0px;
-      text-align: center;
-      position: relative;
-      top: 20px;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    .footer-columns {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      padding-bottom: 0;
-    }
-
-    .footer-column1 {
-      flex: 1;
-      margin: 1%;
-      margin-top: 4%;
-      margin-left: 14%;
-    }
-
-    .footer-column1>p {
-      font-size: 30px;
-      padding: 0px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-      margin: 20px 0px 0px 0px;
-    }
-
-    .footer-column1>h3 {
-      font-size: 30px;
-      padding: 0px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-      margin: 0px;
-    }
-
-    .footer-column1>p {
-      margin: 4%;
-      font-size: 20px;
-      padding: 0;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    }
-
-    .footer-column2 {
-      flex: 0.6;
-      margin: 1%;
-    }
-
-    .footer-column2>ul {
-      list-style-type: none;
-      padding: 0px;
-      margin: 0px
-    }
-
-    .footer-column2>ul>li {
-      margin: 4.6%;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    }
-
-    .footer-column2>ul>li>a {
-      color: #ffff;
-      text-decoration: none;
-      font-size: 22px;
-    }
-
-    .footer-column2>ul>li>a:hover {
-      color: #C7C8CC;
-    }
-
-    .footer-column3 {
-      flex: 1;
-      margin: 1%;
-      margin-top: 4%;
-      margin-right: 14%;
-    }
-
-    .footer-column3>p {
-      font-size: 25px;
-      margin: 0% 3% 0% 3%;
-      margin-bottom: 4%;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 2);
-    }
-
-    .footer-column3>p>a {
-      color: #ffff;
-      text-decoration: none;
-      font-size: 22px;
-    }
-
-    @media (max-width: 700px) {
-
-      .footer-column1,
-      .footer-column2,
-      .footer-column3 {
-        flex: 100%;
-        margin: 1% 0;
-      }
-
-      .footer-column1 {
-        margin-left: 0;
-      }
-
-      .footer-column2>ul>li>a:hover {
-        color: #C7C8CC;
-      }
-    }
   </style>
 </head>
 
@@ -481,7 +394,7 @@
             {% endif %}
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="#contactForm">Contact</a>
+            <a class="nav-link text-dark" href="/index/#contactForm">Contact</a>
           <li class="">
             <form class="" role="search">
               <!-- Code for admin panel -->
@@ -520,7 +433,7 @@
     <form method="post">
       {% csrf_token %}
       <div class="fields">
-        <input id="username" name="username" type="text" placeholder="User Name" required>
+        <input id="username" name="username" type="text" placeholder="Professor Name" required>
         <input type="date" id="date" name="date" placeholder="Date" required>
         <select id="time" name="time" required>
           <option value="10:00">10:00am-11:00am</option>
@@ -559,7 +472,12 @@
       </div>
       <div class="buttonl">
         <button class="home" type="button"><a href="/index/">Home</a></button>
-        <button class="submit" type="submit">Submit</button>
+        <button class="submit" type="submit" onclick="submitrecord()">Submit</button>
+      </div>
+      <!--        Submited Message          -->
+      <div id="alertBox" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <span id="alertMessage">Attendance Submitted Successfully</span>
       </div>
       <div><input type="text" class="numbercount" id="presentNumber" readonly></div>
     </form>
@@ -637,6 +555,11 @@
         });
       });
     };
+
+    function submitrecord(){
+      document.getElementById('alertMessage').textContent = "Attendance Submitted Successfully";
+      document.getElementById('alertBox').style.display = 'block';
+    }
 
   </script>
 
