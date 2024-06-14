@@ -94,7 +94,7 @@ def ceone(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("cereport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
@@ -172,7 +172,7 @@ def itmark(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("itreport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
@@ -238,7 +238,7 @@ def memark(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("mereport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
@@ -304,7 +304,7 @@ def cvmark(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("cvreport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
@@ -370,7 +370,7 @@ def aemark(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("aereport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
@@ -436,7 +436,7 @@ def eemark(request):
                     student=student, date=date,
                     defaults={'status': status, 'time': time, 'username': username}
                 )
-        return redirect(reverse("eereport"))
+        return redirect(reverse("home"))
     else:
         form = AttendanceForm()
     
