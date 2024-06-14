@@ -45,3 +45,11 @@
           });
       });
   };
+
+
+// On Submit Function  
+
+function submitrecord(){
+    document.getElementById('alertMessage').textContent = "Attendance Submitted Successfully";
+    document.getElementById('alertBox').style.display = 'block';
+  }
